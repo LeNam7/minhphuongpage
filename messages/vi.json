@@ -82,6 +82,39 @@
     "coffee_3_label": "Pea Berry (Culi):",
     "coffee_3_val": "Hạt tròn đặc biệt, định vị cao cấp."
   },
+  "SupplyChain": {
+    "subtitle": "Traceability",
+    "title": "From Farm to Port - Fully Integrated",
+    "desc": "Kiểm soát chất lượng tuyệt đối qua hệ sinh thái 4 bước khép kín phủ sóng toàn miền Nam và Tây Nguyên.",
+    "step1_title": "Harvest & Transport",
+    "step1_desc": "1200+ Ha chuối, 500+ Ha cây ăn trái. Thu hoạch chuẩn độ brix & vận chuyển xe tải lạnh toàn trình.",
+    "step2_title": "Process & Package",
+    "step2_desc": "Hệ thống chế biến khép kín vô trùng tại 5 cụm nhà máy công suất cao hàng chục nghìn tấn.",
+    "step3_title": "Cold Storage HQ",
+    "step3_desc": "Bảo quản hàng ngàn Pallet điều hòa nhiệt tự động 24/7 trước khi di chuyển tới cảng biển.",
+    "step4_title": "Export & Distribute",
+    "step4_desc": "Giao hàng đúng cam kết (Ocean/Air) tới thị trường toàn cầu linh hoạt và chính xác."
+  },
+  "ESG": {
+    "subtitle": "Vision 2030",
+    "title": "Innovating for a Sustainable Future",
+    "desc": "Mục tiêu 100 triệu USD/năm doanh thu xuất khẩu nông - thủy sản. Chúng tôi đang xây dựng hệ thống nền tảng vững vàng vì môi trường và uy tín dài lâu trên bản đồ thế giới.",
+    "blockchain_title": "Blockchain Traceability",
+    "blockchain_desc": "Nông nghiệp 4.0 với minh bạch đường đi của từng trái cây đến tay khách hàng.",
+    "lowemission_title": "Low-emission Chain",
+    "lowemission_desc": "Triển khai mạnh mẽ chiến lược phát thải thấp và báo cáo ESG chuẩn Liên hợp quốc."
+  },
+  "Contact": {
+    "title": "Ready to Elevate Your Supply Chain?",
+    "desc": "Liên hệ đội ngũ Kinh doanh Xuất khẩu của chúng tôi. Yêu cầu báo giá của bạn sẽ được tư vấn chuyên sâu và phản hồi trong vòng 24 giờ.",
+    "hq": "Trụ Sở Đầu Não:",
+    "hq_val": "Việt Nam",
+    "hotline": "Hotline (Export):",
+    "email": "Email:",
+    "org": "Tổ chức:",
+    "org_val": "CÔNG TY TNHH SẢN XUẤT, XNK VÀ TMDV MINH PHƯƠNG",
+    "tax": "Mã Số Thuế:"
+  },
   "Stats": {
     "title": "Quy Mô & Năng Lực",
     "desc": "Nền tảng vững chắc đáp ứng mọi nhu cầu của chuỗi cung ứng toàn cầu.",

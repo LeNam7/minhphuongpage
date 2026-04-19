@@ -82,6 +82,39 @@
     "coffee_3_label": "Pea Berry (Culi):",
     "coffee_3_val": "Special round beans, premium positioning."
   },
+  "SupplyChain": {
+    "subtitle": "Traceability",
+    "title": "From Farm to Port - Fully Integrated",
+    "desc": "Absolute quality control through a 4-step closed ecosystem covering the entire South and Central Highlands.",
+    "step1_title": "Harvest & Transport",
+    "step1_desc": "1200+ Ha of bananas, 500+ Ha of fruit trees. Harvesting at standard brix & full refrigerated truck transport.",
+    "step2_title": "Process & Package",
+    "step2_desc": "Aseptic closed processing system at 5 high-capacity factory clusters handling tens of thousands of tons.",
+    "step3_title": "Cold Storage HQ",
+    "step3_desc": "Preserving thousands of Pallets with 24/7 automatic temperature control before moving to the seaport.",
+    "step4_title": "Export & Distribute",
+    "step4_desc": "Delivering flawlessly as committed (Ocean/Air) to the global market, flexible and precise."
+  },
+  "ESG": {
+    "subtitle": "Vision 2030",
+    "title": "Innovating for a Sustainable Future",
+    "desc": "Targeting $100 million/year in agricultural & seafood export revenue. We are building a solid foundation for the environment and long-term reputation on the world map.",
+    "blockchain_title": "Blockchain Traceability",
+    "blockchain_desc": "Agriculture 4.0 with transparent trajectory of each fruit to the customer's hands.",
+    "lowemission_title": "Low-emission Chain",
+    "lowemission_desc": "Strongly deploying low-emission strategies and UN-standard ESG reporting."
+  },
+  "Contact": {
+    "title": "Ready to Elevate Your Supply Chain?",
+    "desc": "Contact our Export Sales team. Your quote request will be provided with in-depth consultation and response within 24 hours.",
+    "hq": "Headquarters:",
+    "hq_val": "Vietnam",
+    "hotline": "Hotline (Export):",
+    "email": "Email:",
+    "org": "Organization:",
+    "org_val": "MINH PHUONG PRODUCTION, IMPORT-EXPORT AND TRADING SERVICES CO., LTD",
+    "tax": "Tax ID:"
+  },
   "Stats": {
     "title": "Scale & Capacity at a Glance",
     "desc": "A solid foundation to meet all global supply chain demands.",
