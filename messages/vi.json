@@ -1,0 +1,29 @@
+{
+  "Hero": {
+    "title": "Nâng Tầm Nông Sản Việt Vì Tiểu Chuẩn Toàn Cầu",
+    "subtitle": "NÔNG SẢN VIỆT – CHẤT LƯỢNG QUỐC TẾ",
+    "description": "Tiên phong kiến tạo hệ sinh thái sản xuất, chế biến và xuất khẩu Nông - Thủy sản bền vững hàng đầu Việt Nam.",
+    "contactBtn": "Liên Hệ Đội Ngũ Xuất Khẩu",
+    "downloadBtn": "Tải Hồ Sơ Năng Lực"
+  },
+  "Nav": {
+    "about": "Về Chúng Tôi",
+    "facilities": "Nhà Máy",
+    "products": "Sản Phẩm",
+    "supplyChain": "Chuỗi Cung Ứng",
+    "esg": "Phát Triển Bền Vững",
+    "quote": "Nhận Báo Giá"
+  },
+  "Stats": {
+    "title": "Quy Mô & Năng Lực",
+    "desc": "Nền tảng vững chắc đáp ứng mọi nhu cầu của chuỗi cung ứng toàn cầu.",
+    "capacity": "Tấn/Năm Quy Mô",
+    "capacitySub": "Công suất chế biến dồi dào",
+    "facilities": "Cụm Nhà Máy",
+    "facilitiesSub": "Đạt chuẩn quốc tế",
+    "farmland": "Hecta Vùng Trồng",
+    "farmlandSub": "Chủ động nguồn nguyên liệu",
+    "export": "Quốc Gia Nhập Khẩu",
+    "exportSub": "Mạng lưới đối tác rộng khắp"
+  }
+}

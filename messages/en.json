@@ -1,0 +1,29 @@
+{
+  "Hero": {
+    "title": "Elevating Vietnamese Agriculture to Global Standards",
+    "subtitle": "VIETNAMESE AGRICULTURE - INTERNATIONAL QUALITY",
+    "description": "Pioneering the creation of a leading sustainable high-tech agricultural and seafood production, processing, and export ecosystem in Vietnam.",
+    "contactBtn": "Contact Our Export Team",
+    "downloadBtn": "Download Company Profile"
+  },
+  "Nav": {
+    "about": "About Us",
+    "facilities": "Facilities",
+    "products": "Products",
+    "supplyChain": "Supply Chain",
+    "esg": "ESG & Vision",
+    "quote": "Request a Quote"
+  },
+  "Stats": {
+    "title": "Scale & Capacity at a Glance",
+    "desc": "A solid foundation to meet all global supply chain demands.",
+    "capacity": "Tons/year Capacity",
+    "capacitySub": "Abundant processing power",
+    "facilities": "Facility Plants",
+    "facilitiesSub": "International standards",
+    "farmland": "Ha Farmland",
+    "farmlandSub": "Raw material zones",
+    "export": "Export Markets",
+    "exportSub": "Importing countries"
+  }
+}
