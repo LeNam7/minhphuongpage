@@ -7,6 +7,8 @@ import { useTranslations } from "next-intl";
 export default function Home() {
   const t = useTranslations("Stats");
   const tAbout = useTranslations("About");
+  const tFacilities = useTranslations("Facilities");
+  const tProducts = useTranslations("Products");
 
   return (
     <main className="w-full flex flex-col min-h-screen">
@@ -71,38 +73,38 @@ export default function Home() {
       <section id="facilities" className="py-24 bg-ice-gray">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="block text-gold font-bold tracking-widest text-sm mb-4 uppercase">Capacity & Tech</span>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-navy mb-6">World-class Manufacturing Infrastructure</h2>
-            <p className="text-lg text-slate-600">5 nhà máy tiên tiến vận hành chuẩn Kaizen với dây chuyền BQF/IQF tự động hiện đại.</p>
+            <span className="block text-gold font-bold tracking-widest text-sm mb-4 uppercase">{tFacilities("subtitle")}</span>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-navy mb-6">{tFacilities("title")}</h2>
+            <p className="text-lg text-slate-600">{tFacilities("desc")}</p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow border-t-4 border-transparent hover:border-forest">
               <Fish className="w-12 h-12 text-forest mb-6" />
-              <h3 className="text-xl font-heading font-bold text-navy mb-2">Seafood Facilities</h3>
-              <p className="text-forest font-semibold mb-4">25,000 tấn/năm</p>
-              <p className="text-slate-600 text-sm">Chuyên gia công tôm đông lạnh và sản phẩm chế biến sâu tinh xảo chuẩn Nhật Bản.</p>
+              <h3 className="text-xl font-heading font-bold text-navy mb-2">{tFacilities("seafood_title")}</h3>
+              <p className="text-forest font-semibold mb-4">{tFacilities("seafood_cap")}</p>
+              <p className="text-slate-600 text-sm">{tFacilities("seafood_desc")}</p>
             </div>
             
             <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow border-t-4 border-transparent hover:border-forest">
               <ThermometerSnowflake className="w-12 h-12 text-forest mb-6" />
-              <h3 className="text-xl font-heading font-bold text-navy mb-2">Fruit IQF & Drying</h3>
-              <p className="text-forest font-semibold mb-4">2,000 tấn/tháng</p>
-              <p className="text-slate-600 text-sm">Công nghệ BQF/IQF siêu tốc và sấy gia nhiệt cao cấp, giữ trọn vẹn sức sống tự nhiên.</p>
+              <h3 className="text-xl font-heading font-bold text-navy mb-2">{tFacilities("fruit_title")}</h3>
+              <p className="text-forest font-semibold mb-4">{tFacilities("fruit_cap")}</p>
+              <p className="text-slate-600 text-sm">{tFacilities("fruit_desc")}</p>
             </div>
             
             <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow border-t-4 border-transparent hover:border-forest">
               <Coffee className="w-12 h-12 text-forest mb-6" />
-              <h3 className="text-xl font-heading font-bold text-navy mb-2">Golden Robusta Plant</h3>
-              <p className="text-forest font-semibold mb-4">30,000 tấn/năm</p>
-              <p className="text-slate-600 text-sm">Dây chuyền tuyển chọn quang học tự động & hệ thống rang xay chuẩn xuất khẩu Mỹ/Âu.</p>
+              <h3 className="text-xl font-heading font-bold text-navy mb-2">{tFacilities("coffee_title")}</h3>
+              <p className="text-forest font-semibold mb-4">{tFacilities("coffee_cap")}</p>
+              <p className="text-slate-600 text-sm">{tFacilities("coffee_desc")}</p>
             </div>
             
             <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow border-t-4 border-transparent hover:border-forest">
               <Factory className="w-12 h-12 text-forest mb-6" />
-              <h3 className="text-xl font-heading font-bold text-navy mb-2">Cold Storage HQ</h3>
-              <p className="text-forest font-semibold mb-4">5,000 Pallets</p>
-              <p className="text-slate-600 text-sm">Kho vận logistics độc lập, hệ thống kiểm soát vi sinh & nhiệt độ điều khiển chính xác bằng AI.</p>
+              <h3 className="text-xl font-heading font-bold text-navy mb-2">{tFacilities("storage_title")}</h3>
+              <p className="text-forest font-semibold mb-4">{tFacilities("storage_cap")}</p>
+              <p className="text-slate-600 text-sm">{tFacilities("storage_desc")}</p>
             </div>
           </div>
         </div>
@@ -112,9 +114,9 @@ export default function Home() {
       <section id="products" className="py-24">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
-            <span className="block text-gold font-bold tracking-widest text-sm mb-4 uppercase">Catalog</span>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-navy mb-6">Premium Products for Global Demands</h2>
-            <p className="text-lg text-slate-600">Truy xuất 100% về nguồn. Đa dạng danh mục & cam kết số lượng lớn, ổn định cho thị trường B2B.</p>
+            <span className="block text-gold font-bold tracking-widest text-sm mb-4 uppercase">{tProducts("subtitle")}</span>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-navy mb-6">{tProducts("title")}</h2>
+            <p className="text-lg text-slate-600">{tProducts("desc")}</p>
           </div>
           
           <ProductTabs />

@@ -2,15 +2,17 @@
 
 import { useState } from "react";
 import { Download } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function ProductTabs() {
+  const t = useTranslations("ProductTabs");
   const [activeTab, setActiveTab] = useState("seafood");
 
   const tabs = [
-    { id: "seafood", label: "Shrimp & Seafood" },
-    { id: "frozen", label: "Frozen Fruits" },
-    { id: "fresh", label: "Fresh & Dried Fruits" },
-    { id: "coffee", label: "Golden Robusta Coffee" },
+    { id: "seafood", label: t("seafood") },
+    { id: "frozen", label: t("frozen") },
+    { id: "fresh", label: t("fresh") },
+    { id: "coffee", label: t("coffee_tab") },
   ];
 
   return (
@@ -39,12 +41,12 @@ export default function ProductTabs() {
             </div>
             <div>
               <h3 className="text-3xl font-heading font-bold text-forest mb-4">Seafood Mastery</h3>
-              <p className="text-slate-600 mb-6">Cung cấp đầy đủ các dòng tôm nguyên liệu đến chế biến sâu tỉ mỉ.</p>
+              <p className="text-slate-600 mb-6">{t("seafood_desc")}</p>
               <ul className="space-y-3 text-slate-600">
-                <li className="flex items-start"><span className="text-gold mr-2">✓</span><strong>Sơ chế:</strong>&nbsp;Tôm tươi nguyên liệu, Nobashi, Butterfly, Easy-peel.</li>
-                <li className="flex items-start"><span className="text-gold mr-2">✓</span><strong>Chế biến:</strong>&nbsp;Tôm chín, Sushi Ebi, Tôm vòng tròn.</li>
-                <li className="flex items-start"><span className="text-gold mr-2">✓</span><strong>GTGT:</strong>&nbsp;Tôm Tempura, Popcorn, Ebi Fry, Cuộn Filo, Chả tôm.</li>
-                <li className="flex items-start"><span className="text-gold mr-2">✓</span><strong>Hương vị:</strong>&nbsp;Tôm tẩm ướp (Tỏi, BBQ, Cam, Ngò tây, Ớt ngọt).</li>
+                <li className="flex items-start"><span className="text-gold mr-2">✓</span><strong>{t("seafood_1_label")}</strong>&nbsp;{t("seafood_1_val")}</li>
+                <li className="flex items-start"><span className="text-gold mr-2">✓</span><strong>{t("seafood_2_label")}</strong>&nbsp;{t("seafood_2_val")}</li>
+                <li className="flex items-start"><span className="text-gold mr-2">✓</span><strong>{t("seafood_3_label")}</strong>&nbsp;{t("seafood_3_val")}</li>
+                <li className="flex items-start"><span className="text-gold mr-2">✓</span><strong>{t("seafood_4_label")}</strong>&nbsp;{t("seafood_4_val")}</li>
               </ul>
             </div>
           </div>
@@ -57,11 +59,11 @@ export default function ProductTabs() {
             </div>
             <div>
               <h3 className="text-3xl font-heading font-bold text-forest mb-4">BQF / IQF Frozen Fruits</h3>
-              <p className="text-slate-600 mb-6">Bảo lưu hoàn hảo phẩm chất với dây chuyền cấp đông nhanh hiện đại.</p>
+              <p className="text-slate-600 mb-6">{t("frozen_desc")}</p>
               <ul className="space-y-3 text-slate-600">
-                <li className="flex items-start"><span className="text-gold mr-2">✓</span><strong>Xoài:</strong>&nbsp;Cấp đông nguyên miếng, Xoài dice hạt lựu 20x20.</li>
-                <li className="flex items-start"><span className="text-gold mr-2">✓</span><strong>Nhiệt đới:</strong>&nbsp;Thơm (Dứa), Chanh dây, Mít, Khoai môn, Đu đủ.</li>
-                <li className="flex items-start"><span className="text-gold mr-2">✓</span><strong>Khác:</strong>&nbsp;Bắp nếp cấp đông, Sả cây.</li>
+                <li className="flex items-start"><span className="text-gold mr-2">✓</span><strong>{t("frozen_1_label")}</strong>&nbsp;{t("frozen_1_val")}</li>
+                <li className="flex items-start"><span className="text-gold mr-2">✓</span><strong>{t("frozen_2_label")}</strong>&nbsp;{t("frozen_2_val")}</li>
+                <li className="flex items-start"><span className="text-gold mr-2">✓</span><strong>{t("frozen_3_label")}</strong>&nbsp;{t("frozen_3_val")}</li>
               </ul>
             </div>
           </div>
@@ -74,10 +76,10 @@ export default function ProductTabs() {
             </div>
             <div>
               <h3 className="text-3xl font-heading font-bold text-forest mb-4">Fresh & Dried Selections</h3>
-              <p className="text-slate-600 mb-6">Tuyển chọn khắt khe trái cây chuẩn quốc tế tại vùng nguyên liệu trải dài các tỉnh.</p>
+              <p className="text-slate-600 mb-6">{t("fresh_desc")}</p>
               <ul className="space-y-3 text-slate-600">
-                <li className="flex items-start"><span className="text-gold mr-2">✓</span><strong>Trái Cây Tươi Cao Cấp:</strong>&nbsp;Xoài R2E2, Dứa MD2, Mít Thái, Thanh Long ruột đỏ, Chanh dây...</li>
-                <li className="flex items-start"><span className="text-gold mr-2">✓</span><strong>Trái Cây Sấy:</strong>&nbsp;Sấy khô & Sấy dẻo tiêu chuẩn Âu - Mỹ, lưu giữ độ dẻo và dưỡng chất hoàn hảo.</li>
+                <li className="flex items-start"><span className="text-gold mr-2">✓</span><strong>{t("fresh_1_label")}</strong>&nbsp;{t("fresh_1_val")}</li>
+                <li className="flex items-start"><span className="text-gold mr-2">✓</span><strong>{t("fresh_2_label")}</strong>&nbsp;{t("fresh_2_val")}</li>
               </ul>
             </div>
           </div>
@@ -90,11 +92,11 @@ export default function ProductTabs() {
             </div>
             <div>
               <h3 className="text-3xl font-heading font-bold text-forest mb-4">Golden Robusta Export</h3>
-              <p className="text-slate-600 mb-6">Kiệt tác cà phê cao nguyên B'Lao độ cao 1.000m. Hương vị đậm đà, đóng gói xuất khẩu ưu việt.</p>
+              <p className="text-slate-600 mb-6">{t("coffee_desc")}</p>
               <ul className="space-y-3 text-slate-600">
-                <li className="flex items-start"><span className="text-gold mr-2">✓</span><strong>Green Bean (Clean):</strong>&nbsp;Kích cỡ 13, 16, 18, 20. Độ ẩm thấp.</li>
-                <li className="flex items-start"><span className="text-gold mr-2">✓</span><strong>Green Bean (Wet):</strong>&nbsp;Dòng chế biến ướt cao cấp, tạp chất siêu thấp.</li>
-                <li className="flex items-start"><span className="text-gold mr-2">✓</span><strong>Pea Berry (Culi):</strong>&nbsp;Hạt tròn đặc biệt, định vị cao cấp.</li>
+                <li className="flex items-start"><span className="text-gold mr-2">✓</span><strong>{t("coffee_1_label")}</strong>&nbsp;{t("coffee_1_val")}</li>
+                <li className="flex items-start"><span className="text-gold mr-2">✓</span><strong>{t("coffee_2_label")}</strong>&nbsp;{t("coffee_2_val")}</li>
+                <li className="flex items-start"><span className="text-gold mr-2">✓</span><strong>{t("coffee_3_label")}</strong>&nbsp;{t("coffee_3_val")}</li>
               </ul>
             </div>
           </div>
