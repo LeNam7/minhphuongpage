@@ -14,6 +14,18 @@
     "esg": "ESG & Vision",
     "quote": "Request a Quote"
   },
+  "About": {
+    "subtitle": "Overview",
+    "title": "Empowering the World with Safe, Traceable Food",
+    "desc": "Reshaping the value of the high-tech agricultural supply chain. Minh Phuong is committed to providing quality agricultural and seafood products with transparent traceability from farm to table.",
+    "quality_title": "Quality:",
+    "quality_desc": "Meeting all the strictest global standards.",
+    "transparency_title": "Transparency:",
+    "transparency_desc": "Open processes, 100% traceability across the entire chain.",
+    "sustainability_title": "Sustainability:",
+    "sustainability_desc": "Focusing on ESG and an ecological circular agriculture system.",
+    "cta": "Discover Our Ecosystem"
+  },
   "Stats": {
     "title": "Scale & Capacity at a Glance",
     "desc": "A solid foundation to meet all global supply chain demands.",
