@@ -1,0 +1,282 @@
+[
+  {
+    "id": "TK001",
+    "nameEn": "Thai Rambutan",
+    "nameVi": "Chôm Chôm Thái",
+    "notes": "crunchy totally sweet long hair",
+    "packing": "500g/tray, 1kg/tray, 2kg in foam box/carton",
+    "image": "/images/products_docx/image1.jpg"
+  },
+  {
+    "id": "TK002",
+    "nameEn": "Java rambutan",
+    "nameVi": "Chôm chôm java",
+    "notes": "sweet and sour, hair shorter than Thai",
+    "packing": "500g/tray, 1kg/tray, 2kg in foam box/carton",
+    "image": "/images/products_docx/image2.jpg"
+  },
+  {
+    "id": "TK003",
+    "nameEn": "Langsat",
+    "nameVi": "Bòn bòn",
+    "notes": "",
+    "packing": "tray/box 5kg",
+    "image": "/images/products_docx/image3.jpg"
+  },
+  {
+    "id": "TK004",
+    "nameEn": "Passion Fruit",
+    "nameVi": "Chanh Dây",
+    "notes": "loose or 1kg/tray, carton 2 kg",
+    "packing": "loose or 1kg/tray, carton 2 kg",
+    "image": "/images/products_docx/image4.jpg"
+  },
+  {
+    "id": "TK005",
+    "nameEn": "Sour Mango",
+    "nameVi": "Xoài chua",
+    "notes": "",
+    "packing": "",
+    "image": "/images/products_docx/image5.jpg"
+  },
+  {
+    "id": "TK006",
+    "nameEn": "Hoa loc sweet mango",
+    "nameVi": "Xoài cát hòa lộc",
+    "notes": "",
+    "packing": "tray/box 10kg",
+    "image": "/images/products_docx/image6.jpg"
+  },
+  {
+    "id": "TK007",
+    "nameEn": "Baby sour mango",
+    "nameVi": "Xoài chua chùm",
+    "notes": "",
+    "packing": "500g/tray, box 10kg",
+    "image": "/images/products_docx/image7.jpg"
+  },
+  {
+    "id": "TK008",
+    "nameEn": "Thai Kiew Sawoi",
+    "nameVi": "Xoài thái ngọt",
+    "notes": "",
+    "packing": "tray/box 10kg",
+    "image": "/images/products_docx/image8.jpg"
+  },
+  {
+    "id": "TK009",
+    "nameEn": "Yellow cat chu mango",
+    "nameVi": "Xoài cát chu vàng",
+    "notes": "",
+    "packing": "tray/box 10kg",
+    "image": "/images/products_docx/image9.png"
+  },
+  {
+    "id": "TK010",
+    "nameEn": "Milk fruit white",
+    "nameVi": "Vú sữa trắng",
+    "notes": "",
+    "packing": "2pcs/tray, box 5kg/10kg",
+    "image": "/images/products_docx/image10.jpg"
+  },
+  {
+    "id": "TK011",
+    "nameEn": "Milk fruit purple",
+    "nameVi": "Vú sữa tím",
+    "notes": "",
+    "packing": "2pcs/tray, box 5kg/10kg",
+    "image": "/images/products_docx/image11.jpg"
+  },
+  {
+    "id": "TK012",
+    "nameEn": "Durian Monthong whole",
+    "nameVi": "Sầu Monthong",
+    "notes": "",
+    "packing": "",
+    "image": "/images/products_docx/image12.jpg"
+  },
+  {
+    "id": "TK013",
+    "nameEn": "Durian Ri-6 whole",
+    "nameVi": "Sầu Ri-6",
+    "notes": "",
+    "packing": "",
+    "image": "/images/products_docx/image13.jpg"
+  },
+  {
+    "id": "TK014",
+    "nameEn": "Peeled durian",
+    "nameVi": "Sầu riêng lột vỏ",
+    "notes": "",
+    "packing": "500g/punnet, box 5kg",
+    "image": "/images/products_docx/image14.png"
+  },
+  {
+    "id": "TK015",
+    "nameEn": "Lychee",
+    "nameVi": "Vải",
+    "notes": "",
+    "packing": "500g/tray, 1kg/tray/loose, box 2-10kg",
+    "image": "/images/products_docx/image15.jpg"
+  },
+  {
+    "id": "TK016",
+    "nameEn": "Rambi fruit green/yellow",
+    "nameVi": "Dâu da",
+    "notes": "",
+    "packing": "500g/tray, foam box 5-10kg",
+    "image": "/images/products_docx/image16.jpg"
+  },
+  {
+    "id": "TK017",
+    "nameEn": "Red cut jackfruit",
+    "nameVi": "Mít đỏ miếng",
+    "notes": "",
+    "packing": "10kg/box",
+    "image": "/images/products_docx/image17.jpg"
+  },
+  {
+    "id": "TK018",
+    "nameEn": "Thai Cut jackfruit",
+    "nameVi": "Mít thái miếng",
+    "notes": "",
+    "packing": "10kg/box",
+    "image": "/images/products_docx/image18.jpg"
+  },
+  {
+    "id": "TK019",
+    "nameEn": "Thai peeled jackfruit without seed",
+    "nameVi": "Mít thái lột vỏ",
+    "notes": "",
+    "packing": "200g/tray, box 8kg",
+    "image": "/images/products_docx/image19.jpg"
+  },
+  {
+    "id": "TK020",
+    "nameEn": "Red peeled jackfruit with seed",
+    "nameVi": "Mít đỏ múi",
+    "notes": "",
+    "packing": "250g/tray, box 10kg",
+    "image": "/images/products_docx/image20.png"
+  },
+  {
+    "id": "TK022",
+    "nameEn": "Hog plum",
+    "nameVi": "Cóc xanh",
+    "notes": "",
+    "packing": "tray/box 10kg",
+    "image": "/images/products_docx/image21.jpg"
+  },
+  {
+    "id": "TK023",
+    "nameEn": "Ripe hog plum",
+    "nameVi": "Cóc chín",
+    "notes": "",
+    "packing": "tray/box 10kg",
+    "image": "/images/products_docx/image22.jpg"
+  },
+  {
+    "id": "TK025",
+    "nameEn": "Thai longan",
+    "nameVi": "Nhãn thái Ido",
+    "notes": "loose",
+    "packing": "500g/basket or net bag/ loose, carton 10kg",
+    "image": "/images/products_docx/image23.jpg"
+  },
+  {
+    "id": "TK116",
+    "nameEn": "Big guava red-ruby",
+    "nameVi": "ổi đỏ",
+    "notes": "",
+    "packing": "weight",
+    "image": "/images/products_docx/image93.png"
+  },
+  {
+    "id": "TK117",
+    "nameEn": "White guava",
+    "nameVi": "Ổi trắng",
+    "notes": "",
+    "packing": "weight",
+    "image": "/images/products_docx/image94.jpg"
+  },
+  {
+    "id": "TK118",
+    "nameEn": "Queen guava",
+    "nameVi": "Ổi nữ hoàng",
+    "notes": "",
+    "packing": "weight",
+    "image": "/images/products_docx/image96.png"
+  },
+  {
+    "id": "TK120",
+    "nameEn": "Green tea leaves",
+    "nameVi": "Lá trà xanh",
+    "notes": "",
+    "packing": "200g",
+    "image": "/images/products_docx/image97.jpg"
+  },
+  {
+    "id": "TK121",
+    "nameEn": "Orka",
+    "nameVi": "Đậu bắp",
+    "notes": "",
+    "packing": "200g",
+    "image": "/images/products_docx/image98.jpg"
+  },
+  {
+    "id": "TK124",
+    "nameEn": "Rose apple",
+    "nameVi": "Mận đỏ",
+    "notes": "",
+    "packing": "500g",
+    "image": "/images/products_docx/image99.jpg"
+  },
+  {
+    "id": "TK125",
+    "nameEn": "Soursop",
+    "nameVi": "Mãng cầu xiêm",
+    "notes": "",
+    "packing": "loose",
+    "image": "/images/products_docx/image100.jpg"
+  },
+  {
+    "id": "TK126",
+    "nameEn": "Jack fruits yellow with seeds",
+    "nameVi": "Mít múi có hạt",
+    "notes": "",
+    "packing": "500g, 250g/tray",
+    "image": "/images/products_docx/image101.jpg"
+  },
+  {
+    "id": "TK131",
+    "nameEn": "Red Jute",
+    "nameVi": "Rau đay đỏ",
+    "notes": "",
+    "packing": "200g",
+    "image": "/images/products_docx/image102.jpg"
+  },
+  {
+    "id": "TK132",
+    "nameEn": "Chaplu leaves",
+    "nameVi": "Lá lốt",
+    "notes": "",
+    "packing": "100g",
+    "image": "/images/products_docx/image103.jpg"
+  },
+  {
+    "id": "TK133",
+    "nameEn": "Seedless longan",
+    "nameVi": "Nhãn hột tiêu",
+    "notes": "",
+    "packing": "500g",
+    "image": "/images/products_docx/image104.jpg"
+  },
+  {
+    "id": "TK135",
+    "nameEn": "Kunir leaves",
+    "nameVi": "Lá nghệ",
+    "notes": "",
+    "packing": "500g",
+    "image": "/images/products_docx/image105.jpg"
+  }
+]

@@ -80,7 +80,8 @@
     "coffee_2_label": "Green Bean (Wet):",
     "coffee_2_val": "Dòng chế biến ướt cao cấp, tạp chất siêu thấp.",
     "coffee_3_label": "Pea Berry (Culi):",
-    "coffee_3_val": "Hạt tròn đặc biệt, định vị cao cấp."
+    "coffee_3_val": "Hạt tròn đặc biệt, định vị cao cấp.",
+    "view_product_list": "Danh sách sản phẩm"
   },
   "SupplyChain": {
     "subtitle": "Traceability",

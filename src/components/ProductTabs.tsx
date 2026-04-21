@@ -1,12 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { Download } from "lucide-react";
+import { Download, LayoutList, X } from "lucide-react";
 import { useTranslations } from "next-intl";
+import products from "../data/products.json";
 
 export default function ProductTabs() {
   const t = useTranslations("ProductTabs");
   const [activeTab, setActiveTab] = useState("seafood");
+  const [isProductListOpen, setIsProductListOpen] = useState(false);
 
   const tabs = [
     { id: "seafood", label: t("seafood") },
@@ -103,6 +105,67 @@ export default function ProductTabs() {
         )}
       </div>
       
+      <div className="flex justify-center mt-12 mb-4">
+        <button 
+          onClick={() => setIsProductListOpen(true)}
+          className="flex items-center gap-3 px-8 py-4 bg-forest text-white rounded-full font-heading text-lg font-bold hover:bg-forest/90 transition-transform hover:-translate-y-1 shadow-xl hover:shadow-2xl"
+        >
+          <LayoutList size={24} />
+          {t("view_product_list")}
+        </button>
+      </div>
+
+      {isProductListOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200" onClick={() => setIsProductListOpen(false)}>
+          <div className="bg-white rounded-2xl w-full max-w-6xl max-h-[85vh] flex flex-col overflow-hidden shadow-2xl" onClick={e => e.stopPropagation()}>
+            <div className="flex items-center justify-between p-6 md:p-8 border-b border-slate-100">
+              <h2 className="text-2xl md:text-3xl font-bold font-heading text-forest flex items-center gap-3">
+                <LayoutList className="text-gold" size={32} />
+                {t("view_product_list")}
+              </h2>
+              <button onClick={() => setIsProductListOpen(false)} className="p-2 rounded-full hover:bg-slate-100 text-slate-500 transition-colors">
+                <X size={28} />
+              </button>
+            </div>
+            <div className="overflow-y-auto p-6 md:p-8 flex-1 bg-slate-50/80 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 max-w-7xl mx-auto">
+                {products.map((p, idx) => (
+                  <div key={idx} className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col">
+                    <div className="h-48 md:h-56 lg:h-64 relative bg-slate-100 overflow-hidden">
+                      {p.image ? (
+                        <img src={p.image} alt={p.nameEn} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                      ) : (
+                        <div className="absolute inset-0 flex items-center justify-center text-slate-300 font-medium bg-slate-50">No Image</div>
+                      )}
+                      <div className="absolute top-3 left-3 bg-white/95 backdrop-blur shadow-sm text-forest font-bold px-3 py-1 rounded-lg text-sm z-10 border border-slate-100">
+                        {p.id}
+                      </div>
+                    </div>
+                    <div className="p-5 md:p-6 flex-1 flex flex-col">
+                      <h3 className="text-xl font-bold font-heading text-slate-800 group-hover:text-forest transition-colors line-clamp-1" title={p.nameVi}>{p.nameVi}</h3>
+                      <p className="text-slate-500 text-sm mb-4 line-clamp-1" title={p.nameEn}>{p.nameEn}</p>
+                      
+                      <div className="mt-auto space-y-3">
+                        {p.packing && (
+                          <div className="flex items-start gap-2 text-sm text-slate-600 bg-slate-50 p-3 rounded-lg border border-slate-100">
+                            <span className="text-gold shrink-0">📦</span>
+                            <span className="line-clamp-2" title={p.packing}>{p.packing}</span>
+                          </div>
+                        )}
+                        {p.notes && (
+                          <div className="text-xs text-slate-400 italic line-clamp-2 px-1">
+                            * {p.notes}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
     </div>
   );
