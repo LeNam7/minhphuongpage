@@ -2,11 +2,14 @@
 
 import { useState, useEffect } from "react";
 import { Download, LayoutList, X } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import products from "../data/products.json";
+import enMessages from "../../messages/en.json";
 
 export default function ProductTabs() {
   const t = useTranslations("ProductTabs");
+  const locale = useLocale();
+  const isVi = locale === 'vi';
   const [activeTab, setActiveTab] = useState("seafood");
   const [isProductListOpen, setIsProductListOpen] = useState(false);
   const [marqueeProducts, setMarqueeProducts] = useState<typeof products>([]);
@@ -50,13 +53,56 @@ export default function ProductTabs() {
               <img src="/images/shrimp.png" alt="Premium Frozen Shrimp" className="absolute inset-0 w-full h-full object-cover rounded-lg" />
             </div>
             <div>
-              <h3 className="text-3xl font-heading font-bold text-forest mb-4">Seafood Mastery</h3>
-              <p className="text-slate-600 mb-6">{t("seafood_desc")}</p>
-              <ul className="space-y-3 text-slate-600">
-                <li className="flex items-start"><span className="text-gold mr-2">✓</span><strong>{t("seafood_1_label")}</strong>&nbsp;{t("seafood_1_val")}</li>
-                <li className="flex items-start"><span className="text-gold mr-2">✓</span><strong>{t("seafood_2_label")}</strong>&nbsp;{t("seafood_2_val")}</li>
-                <li className="flex items-start"><span className="text-gold mr-2">✓</span><strong>{t("seafood_3_label")}</strong>&nbsp;{t("seafood_3_val")}</li>
-                <li className="flex items-start"><span className="text-gold mr-2">✓</span><strong>{t("seafood_4_label")}</strong>&nbsp;{t("seafood_4_val")}</li>
+              <h3 className="text-3xl font-heading font-bold text-forest mb-5">Seafood Mastery</h3>
+              <div className="mb-8 p-5 bg-white rounded-xl shadow-md border border-slate-100 border-l-4 border-l-gold">
+                <p className="text-slate-700 text-[15px] font-medium leading-relaxed">{t("seafood_desc")}</p>
+                {isVi && <p className="text-[13px] text-slate-400 mt-2">{enMessages.ProductTabs.seafood_desc}</p>}
+              </div>
+              <ul className="space-y-0 text-slate-600 ml-2">
+                <li className="relative pl-8 pb-6 border-l-2 border-slate-100 last:border-transparent last:pb-0">
+                  <span className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-gold shadow-[0_0_0_5px_white]"></span>
+                  <div className="text-slate-800 leading-snug">
+                    <strong className="text-forest font-bold">{t("seafood_1_label")}</strong> {t("seafood_1_val")}
+                  </div>
+                  {isVi && (
+                    <div className="text-[13px] text-slate-400 mt-1.5 leading-snug">
+                      <span className="font-medium text-slate-500">{enMessages.ProductTabs.seafood_1_label}</span> {enMessages.ProductTabs.seafood_1_val}
+                    </div>
+                  )}
+                </li>
+                <li className="relative pl-8 pb-6 border-l-2 border-slate-100 last:border-transparent last:pb-0">
+                  <span className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-gold shadow-[0_0_0_5px_white]"></span>
+                  <div className="text-slate-800 leading-snug">
+                    <strong className="text-forest font-bold">{t("seafood_2_label")}</strong> {t("seafood_2_val")}
+                  </div>
+                  {isVi && (
+                    <div className="text-[13px] text-slate-400 mt-1.5 leading-snug">
+                      <span className="font-medium text-slate-500">{enMessages.ProductTabs.seafood_2_label}</span> {enMessages.ProductTabs.seafood_2_val}
+                    </div>
+                  )}
+                </li>
+                <li className="relative pl-8 pb-6 border-l-2 border-slate-100 last:border-transparent last:pb-0">
+                  <span className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-gold shadow-[0_0_0_5px_white]"></span>
+                  <div className="text-slate-800 leading-snug">
+                    <strong className="text-forest font-bold">{t("seafood_3_label")}</strong> {t("seafood_3_val")}
+                  </div>
+                  {isVi && (
+                    <div className="text-[13px] text-slate-400 mt-1.5 leading-snug">
+                      <span className="font-medium text-slate-500">{enMessages.ProductTabs.seafood_3_label}</span> {enMessages.ProductTabs.seafood_3_val}
+                    </div>
+                  )}
+                </li>
+                <li className="relative pl-8 pb-6 border-l-2 border-slate-100 last:border-transparent last:pb-0">
+                  <span className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-gold shadow-[0_0_0_5px_white]"></span>
+                  <div className="text-slate-800 leading-snug">
+                    <strong className="text-forest font-bold">{t("seafood_4_label")}</strong> {t("seafood_4_val")}
+                  </div>
+                  {isVi && (
+                    <div className="text-[13px] text-slate-400 mt-1.5 leading-snug">
+                      <span className="font-medium text-slate-500">{enMessages.ProductTabs.seafood_4_label}</span> {enMessages.ProductTabs.seafood_4_val}
+                    </div>
+                  )}
+                </li>
               </ul>
             </div>
           </div>
@@ -68,12 +114,45 @@ export default function ProductTabs() {
               <img src="/images/frozen_fruits.png" alt="IQF Frozen Tropical Fruits" className="absolute inset-0 w-full h-full object-cover rounded-lg" />
             </div>
             <div>
-              <h3 className="text-3xl font-heading font-bold text-forest mb-4">BQF / IQF Frozen Fruits</h3>
-              <p className="text-slate-600 mb-6">{t("frozen_desc")}</p>
-              <ul className="space-y-3 text-slate-600">
-                <li className="flex items-start"><span className="text-gold mr-2">✓</span><strong>{t("frozen_1_label")}</strong>&nbsp;{t("frozen_1_val")}</li>
-                <li className="flex items-start"><span className="text-gold mr-2">✓</span><strong>{t("frozen_2_label")}</strong>&nbsp;{t("frozen_2_val")}</li>
-                <li className="flex items-start"><span className="text-gold mr-2">✓</span><strong>{t("frozen_3_label")}</strong>&nbsp;{t("frozen_3_val")}</li>
+              <h3 className="text-3xl font-heading font-bold text-forest mb-5">BQF / IQF Frozen Fruits</h3>
+              <div className="mb-8 p-5 bg-white rounded-xl shadow-md border border-slate-100 border-l-4 border-l-gold">
+                <p className="text-slate-700 text-[15px] font-medium leading-relaxed">{t("frozen_desc")}</p>
+                {isVi && <p className="text-[13px] text-slate-400 mt-2">{enMessages.ProductTabs.frozen_desc}</p>}
+              </div>
+              <ul className="space-y-0 text-slate-600 ml-2">
+                <li className="relative pl-8 pb-6 border-l-2 border-slate-100 last:border-transparent last:pb-0">
+                  <span className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-gold shadow-[0_0_0_5px_white]"></span>
+                  <div className="text-slate-800 leading-snug">
+                    <strong className="text-forest font-bold">{t("frozen_1_label")}</strong> {t("frozen_1_val")}
+                  </div>
+                  {isVi && (
+                    <div className="text-[13px] text-slate-400 mt-1.5 leading-snug">
+                      <span className="font-medium text-slate-500">{enMessages.ProductTabs.frozen_1_label}</span> {enMessages.ProductTabs.frozen_1_val}
+                    </div>
+                  )}
+                </li>
+                <li className="relative pl-8 pb-6 border-l-2 border-slate-100 last:border-transparent last:pb-0">
+                  <span className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-gold shadow-[0_0_0_5px_white]"></span>
+                  <div className="text-slate-800 leading-snug">
+                    <strong className="text-forest font-bold">{t("frozen_2_label")}</strong> {t("frozen_2_val")}
+                  </div>
+                  {isVi && (
+                    <div className="text-[13px] text-slate-400 mt-1.5 leading-snug">
+                      <span className="font-medium text-slate-500">{enMessages.ProductTabs.frozen_2_label}</span> {enMessages.ProductTabs.frozen_2_val}
+                    </div>
+                  )}
+                </li>
+                <li className="relative pl-8 pb-6 border-l-2 border-slate-100 last:border-transparent last:pb-0">
+                  <span className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-gold shadow-[0_0_0_5px_white]"></span>
+                  <div className="text-slate-800 leading-snug">
+                    <strong className="text-forest font-bold">{t("frozen_3_label")}</strong> {t("frozen_3_val")}
+                  </div>
+                  {isVi && (
+                    <div className="text-[13px] text-slate-400 mt-1.5 leading-snug">
+                      <span className="font-medium text-slate-500">{enMessages.ProductTabs.frozen_3_label}</span> {enMessages.ProductTabs.frozen_3_val}
+                    </div>
+                  )}
+                </li>
               </ul>
             </div>
           </div>
@@ -85,11 +164,34 @@ export default function ProductTabs() {
               <img src="/images/fresh_fruits.png" alt="Fresh Orchards Produce" className="absolute inset-0 w-full h-full object-cover rounded-lg" />
             </div>
             <div>
-              <h3 className="text-3xl font-heading font-bold text-forest mb-4">Fresh & Dried Selections</h3>
-              <p className="text-slate-600 mb-6">{t("fresh_desc")}</p>
-              <ul className="space-y-3 text-slate-600">
-                <li className="flex items-start"><span className="text-gold mr-2">✓</span><strong>{t("fresh_1_label")}</strong>&nbsp;{t("fresh_1_val")}</li>
-                <li className="flex items-start"><span className="text-gold mr-2">✓</span><strong>{t("fresh_2_label")}</strong>&nbsp;{t("fresh_2_val")}</li>
+              <h3 className="text-3xl font-heading font-bold text-forest mb-5">Fresh & Dried Selections</h3>
+              <div className="mb-8 p-5 bg-white rounded-xl shadow-md border border-slate-100 border-l-4 border-l-gold">
+                <p className="text-slate-700 text-[15px] font-medium leading-relaxed">{t("fresh_desc")}</p>
+                {isVi && <p className="text-[13px] text-slate-400 mt-2">{enMessages.ProductTabs.fresh_desc}</p>}
+              </div>
+              <ul className="space-y-0 text-slate-600 ml-2">
+                <li className="relative pl-8 pb-6 border-l-2 border-slate-100 last:border-transparent last:pb-0">
+                  <span className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-gold shadow-[0_0_0_5px_white]"></span>
+                  <div className="text-slate-800 leading-snug">
+                    <strong className="text-forest font-bold">{t("fresh_1_label")}</strong> {t("fresh_1_val")}
+                  </div>
+                  {isVi && (
+                    <div className="text-[13px] text-slate-400 mt-1.5 leading-snug">
+                      <span className="font-medium text-slate-500">{enMessages.ProductTabs.fresh_1_label}</span> {enMessages.ProductTabs.fresh_1_val}
+                    </div>
+                  )}
+                </li>
+                <li className="relative pl-8 pb-6 border-l-2 border-slate-100 last:border-transparent last:pb-0">
+                  <span className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-gold shadow-[0_0_0_5px_white]"></span>
+                  <div className="text-slate-800 leading-snug">
+                    <strong className="text-forest font-bold">{t("fresh_2_label")}</strong> {t("fresh_2_val")}
+                  </div>
+                  {isVi && (
+                    <div className="text-[13px] text-slate-400 mt-1.5 leading-snug">
+                      <span className="font-medium text-slate-500">{enMessages.ProductTabs.fresh_2_label}</span> {enMessages.ProductTabs.fresh_2_val}
+                    </div>
+                  )}
+                </li>
               </ul>
             </div>
           </div>
@@ -101,12 +203,45 @@ export default function ProductTabs() {
               <img src="/images/coffee.png" alt="Golden Robusta Coffee Beans" className="absolute inset-0 w-full h-full object-cover rounded-lg" />
             </div>
             <div>
-              <h3 className="text-3xl font-heading font-bold text-forest mb-4">Golden Robusta Export</h3>
-              <p className="text-slate-600 mb-6">{t("coffee_desc")}</p>
-              <ul className="space-y-3 text-slate-600">
-                <li className="flex items-start"><span className="text-gold mr-2">✓</span><strong>{t("coffee_1_label")}</strong>&nbsp;{t("coffee_1_val")}</li>
-                <li className="flex items-start"><span className="text-gold mr-2">✓</span><strong>{t("coffee_2_label")}</strong>&nbsp;{t("coffee_2_val")}</li>
-                <li className="flex items-start"><span className="text-gold mr-2">✓</span><strong>{t("coffee_3_label")}</strong>&nbsp;{t("coffee_3_val")}</li>
+              <h3 className="text-3xl font-heading font-bold text-forest mb-5">Golden Robusta Export</h3>
+              <div className="mb-8 p-5 bg-white rounded-xl shadow-md border border-slate-100 border-l-4 border-l-gold">
+                <p className="text-slate-700 text-[15px] font-medium leading-relaxed">{t("coffee_desc")}</p>
+                {isVi && <p className="text-[13px] text-slate-400 mt-2">{enMessages.ProductTabs.coffee_desc}</p>}
+              </div>
+              <ul className="space-y-0 text-slate-600 ml-2">
+                <li className="relative pl-8 pb-6 border-l-2 border-slate-100 last:border-transparent last:pb-0">
+                  <span className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-gold shadow-[0_0_0_5px_white]"></span>
+                  <div className="text-slate-800 leading-snug">
+                    <strong className="text-forest font-bold">{t("coffee_1_label")}</strong> {t("coffee_1_val")}
+                  </div>
+                  {isVi && (
+                    <div className="text-[13px] text-slate-400 mt-1.5 leading-snug">
+                      <span className="font-medium text-slate-500">{enMessages.ProductTabs.coffee_1_label}</span> {enMessages.ProductTabs.coffee_1_val}
+                    </div>
+                  )}
+                </li>
+                <li className="relative pl-8 pb-6 border-l-2 border-slate-100 last:border-transparent last:pb-0">
+                  <span className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-gold shadow-[0_0_0_5px_white]"></span>
+                  <div className="text-slate-800 leading-snug">
+                    <strong className="text-forest font-bold">{t("coffee_2_label")}</strong> {t("coffee_2_val")}
+                  </div>
+                  {isVi && (
+                    <div className="text-[13px] text-slate-400 mt-1.5 leading-snug">
+                      <span className="font-medium text-slate-500">{enMessages.ProductTabs.coffee_2_label}</span> {enMessages.ProductTabs.coffee_2_val}
+                    </div>
+                  )}
+                </li>
+                <li className="relative pl-8 pb-6 border-l-2 border-slate-100 last:border-transparent last:pb-0">
+                  <span className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-gold shadow-[0_0_0_5px_white]"></span>
+                  <div className="text-slate-800 leading-snug">
+                    <strong className="text-forest font-bold">{t("coffee_3_label")}</strong> {t("coffee_3_val")}
+                  </div>
+                  {isVi && (
+                    <div className="text-[13px] text-slate-400 mt-1.5 leading-snug">
+                      <span className="font-medium text-slate-500">{enMessages.ProductTabs.coffee_3_label}</span> {enMessages.ProductTabs.coffee_3_val}
+                    </div>
+                  )}
+                </li>
               </ul>
             </div>
           </div>
