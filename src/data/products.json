@@ -1,18 +1,18 @@
 [
   {
     "id": "TK001",
-    "nameEn": "Thai Rambutan",
+    "nameEn": "Thai Rambutan (end of season)",
     "nameVi": "Chôm Chôm Thái",
-    "notes": "crunchy totally sweet long hair",
-    "packing": "500g/tray, 1kg/tray, 2kg in foam box/carton",
+    "notes": "crunchy, totally sweet, long hair",
+    "packing": "500g/tray, 1kg/tray, 2kg in foam box or carton",
     "image": "/images/products_docx/image1.jpg"
   },
   {
     "id": "TK002",
     "nameEn": "Java rambutan",
     "nameVi": "Chôm chôm java",
-    "notes": "sweet and sour, hair shorter than Thai",
-    "packing": "500g/tray, 1kg/tray, 2kg in foam box/carton",
+    "notes": "sweet and sour, hair shorter than Thai style",
+    "packing": "500g/tray, 1kg/tray, 2kg in foam box or carton",
     "image": "/images/products_docx/image2.jpg"
   },
   {
@@ -20,15 +20,15 @@
     "nameEn": "Langsat",
     "nameVi": "Bòn bòn",
     "notes": "",
-    "packing": "tray/box 5kg",
+    "packing": "tray, box 5kg",
     "image": "/images/products_docx/image3.jpg"
   },
   {
     "id": "TK004",
     "nameEn": "Passion Fruit",
     "nameVi": "Chanh Dây",
-    "notes": "loose or 1kg/tray, carton 2 kg",
-    "packing": "loose or 1kg/tray, carton 2 kg",
+    "notes": "",
+    "packing": "loose or 1kg/tray, carton 2kg",
     "image": "/images/products_docx/image4.jpg"
   },
   {
@@ -44,7 +44,7 @@
     "nameEn": "Hoa loc sweet mango",
     "nameVi": "Xoài cát hòa lộc",
     "notes": "",
-    "packing": "tray/box 10kg",
+    "packing": "tray, box 10kg",
     "image": "/images/products_docx/image6.jpg"
   },
   {
@@ -60,7 +60,7 @@
     "nameEn": "Thai Kiew Sawoi",
     "nameVi": "Xoài thái ngọt",
     "notes": "",
-    "packing": "tray/box 10kg",
+    "packing": "tray, box 10kg",
     "image": "/images/products_docx/image8.jpg"
   },
   {
@@ -68,7 +68,7 @@
     "nameEn": "Yellow cat chu mango",
     "nameVi": "Xoài cát chu vàng",
     "notes": "",
-    "packing": "tray/box 10kg",
+    "packing": "tray, box 10kg",
     "image": "/images/products_docx/image9.png"
   },
   {
@@ -76,7 +76,7 @@
     "nameEn": "Milk fruit white",
     "nameVi": "Vú sữa trắng",
     "notes": "",
-    "packing": "2pcs/tray, box 5kg/10kg",
+    "packing": "2pcs/tray, box 5kg or 10kg",
     "image": "/images/products_docx/image10.jpg"
   },
   {
@@ -84,7 +84,7 @@
     "nameEn": "Milk fruit purple",
     "nameVi": "Vú sữa tím",
     "notes": "",
-    "packing": "2pcs/tray, box 5kg/10kg",
+    "packing": "2pcs/tray, box 5kg or 10kg",
     "image": "/images/products_docx/image11.jpg"
   },
   {
@@ -116,7 +116,7 @@
     "nameEn": "Lychee",
     "nameVi": "Vải",
     "notes": "",
-    "packing": "500g/tray, 1kg/tray/loose, box 2-10kg",
+    "packing": "500g/tray, 1kg/tray, loose, box 2-5-10kg",
     "image": "/images/products_docx/image15.jpg"
   },
   {
@@ -124,7 +124,7 @@
     "nameEn": "Rambi fruit green/yellow",
     "nameVi": "Dâu da",
     "notes": "",
-    "packing": "500g/tray, foam box 5-10kg",
+    "packing": "500g/tray foam box 5-10kg",
     "image": "/images/products_docx/image16.jpg"
   },
   {
@@ -164,7 +164,7 @@
     "nameEn": "Hog plum",
     "nameVi": "Cóc xanh",
     "notes": "",
-    "packing": "tray/box 10kg",
+    "packing": "tray, box 10kg",
     "image": "/images/products_docx/image21.jpg"
   },
   {
@@ -172,16 +172,568 @@
     "nameEn": "Ripe hog plum",
     "nameVi": "Cóc chín",
     "notes": "",
-    "packing": "tray/box 10kg",
+    "packing": "tray, box 10kg",
     "image": "/images/products_docx/image22.jpg"
   },
   {
     "id": "TK025",
     "nameEn": "Thai longan",
     "nameVi": "Nhãn thái Ido",
-    "notes": "loose",
-    "packing": "500g/basket or net bag/ loose, carton 10kg",
+    "notes": "",
+    "packing": "500g/tray, box 5 or 10kg",
     "image": "/images/products_docx/image23.jpg"
+  },
+  {
+    "id": "TK026",
+    "nameEn": "King longan",
+    "nameVi": "Nhãn xuồng",
+    "notes": "",
+    "packing": "500g/tray, box 5 or 10kg",
+    "image": "/images/products_docx/image24.jpg"
+  },
+  {
+    "id": "TK027",
+    "nameEn": "White pitahaya",
+    "nameVi": "Thanh long trắng",
+    "notes": "Min 100kgs",
+    "packing": "6-7-8-9-10pcs/box 3kg",
+    "image": "/images/products_docx/image25.jpg"
+  },
+  {
+    "id": "TK028",
+    "nameEn": "Red pitahaya",
+    "nameVi": "Thanh long đỏ",
+    "notes": "Min 100kgs",
+    "packing": "6-7-8pcs/box 3kg",
+    "image": "/images/products_docx/image26.jpg"
+  },
+  {
+    "id": "TK029",
+    "nameEn": "Sapodilla",
+    "nameVi": "Hồng xiêm",
+    "notes": "",
+    "packing": "2pcs/tray, box 5kg or 10kg",
+    "image": "/images/products_docx/image27.jpg"
+  },
+  {
+    "id": "TK030",
+    "nameEn": "Mangosteen nearly out season",
+    "nameVi": "Măng cụt",
+    "notes": "out of season",
+    "packing": "500g/tray, carton 2kg",
+    "image": "/images/products_docx/image28.jpg"
+  },
+  {
+    "id": "TK031",
+    "nameEn": "Ripe papaya",
+    "nameVi": "đu đủ chín",
+    "notes": "",
+    "packing": "10kg/box",
+    "image": "/images/products_docx/image29.jpg"
+  },
+  {
+    "id": "TK032",
+    "nameEn": "Baby banana",
+    "nameVi": "Chuối cau",
+    "notes": "",
+    "packing": "pcs, 10kg-15kg/box",
+    "image": "/images/products_docx/image30.jpg"
+  },
+  {
+    "id": "TK033",
+    "nameEn": "Siam banana",
+    "nameVi": "Chuối sứ",
+    "notes": "",
+    "packing": "pcs, 10kg-15kg/box",
+    "image": "/images/products_docx/image31.jpg"
+  },
+  {
+    "id": "TK034",
+    "nameEn": "Wax banana",
+    "nameVi": "Chuối sáp",
+    "notes": "",
+    "packing": "pcs, 10kg/box",
+    "image": "/images/products_docx/image32.jpg"
+  },
+  {
+    "id": "TK035",
+    "nameEn": "Banana leave",
+    "nameVi": "Lá chuối",
+    "notes": "",
+    "packing": "500g, 10kg/box",
+    "image": "/images/products_docx/image33.jpg"
+  },
+  {
+    "id": "TK036",
+    "nameEn": "Round Banana leaf",
+    "nameVi": "Lá chuối tròn",
+    "notes": "",
+    "packing": "500g, 10kg/box",
+    "image": "/images/products_docx/image34.jpg"
+  },
+  {
+    "id": "TK037",
+    "nameEn": "Lemon grass",
+    "nameVi": "Sả cây",
+    "notes": "",
+    "packing": "100g/bag, 2kg/carton or 5kg-10kg/foam box",
+    "image": "/images/products_docx/image35.png"
+  },
+  {
+    "id": "TK038",
+    "nameEn": "Young pepper",
+    "nameVi": "Tiêu xanh",
+    "notes": "",
+    "packing": "100g/tray, box 5-10kg",
+    "image": "/images/products_docx/image36.jpg"
+  },
+  {
+    "id": "TK039",
+    "nameEn": "Pandanus leave",
+    "nameVi": "Lá dứa",
+    "notes": "",
+    "packing": "100g/bag, 5-10kg/foam box",
+    "image": "/images/products_docx/image37.jpg"
+  },
+  {
+    "id": "TK040",
+    "nameEn": "Dok karchong",
+    "nameVi": "Kèo nèo",
+    "notes": "",
+    "packing": "200g/bag, 5kg/foam box",
+    "image": "/images/products_docx/image38.jpg"
+  },
+  {
+    "id": "TK042",
+    "nameEn": "Red morning glory",
+    "nameVi": "Rau muống đỏ",
+    "notes": "",
+    "packing": "200g/bag, 10kg/foam box",
+    "image": "/images/products_docx/image39.jpg"
+  },
+  {
+    "id": "TK043",
+    "nameEn": "Thai morning glory",
+    "nameVi": "Rau muống thái",
+    "notes": "",
+    "packing": "200g/bag, 10kg/foam box",
+    "image": "/images/products_docx/image40.jpg"
+  },
+  {
+    "id": "TK044",
+    "nameEn": "Chinese morning glory",
+    "nameVi": "Rau muống hột",
+    "notes": "",
+    "packing": "200g/bag, 10kg/foam box",
+    "image": "/images/products_docx/image41.jpg"
+  },
+  {
+    "id": "TK046",
+    "nameEn": "Dok kharchon",
+    "nameVi": "Bông thiên lý",
+    "notes": "",
+    "packing": "200g/tray, 5kg/foam box",
+    "image": "/images/products_docx/image42.jpg"
+  },
+  {
+    "id": "TK047",
+    "nameEn": "Spring onion",
+    "nameVi": "Hành lá",
+    "notes": "",
+    "packing": "100g/bag, 5-6-7-8kg/foam box",
+    "image": "/images/products_docx/image43.png"
+  },
+  {
+    "id": "TK049",
+    "nameEn": "Guichai flower",
+    "nameVi": "Bông hẹ",
+    "notes": "",
+    "packing": "100g/bag, 5-6-7-8kg/foam box",
+    "image": "/images/products_docx/image44.jpg"
+  },
+  {
+    "id": "TK050",
+    "nameEn": "Perilla",
+    "nameVi": "Tía tô",
+    "notes": "",
+    "packing": "100g/bag, 10kg/foam box",
+    "image": "/images/products_docx/image45.jpg"
+  },
+  {
+    "id": "TK051",
+    "nameEn": "Sweet basil",
+    "nameVi": "Húng quế",
+    "notes": "",
+    "packing": "100g/bag, 10kg/foam box",
+    "image": "/images/products_docx/image46.jpg"
+  },
+  {
+    "id": "TK052",
+    "nameEn": "Holy basil",
+    "nameVi": "Quế đắng",
+    "notes": "",
+    "packing": "100g/bag, 10kg/foam box",
+    "image": "/images/products_docx/image47.jpg"
+  },
+  {
+    "id": "TK053",
+    "nameEn": "Parsley",
+    "nameVi": "Ngò gai",
+    "notes": "",
+    "packing": "100g/bag, 10kg/foam box",
+    "image": "/images/products_docx/image48.jpg"
+  },
+  {
+    "id": "TK054",
+    "nameEn": "Betel leaf",
+    "nameVi": "Lá trầu",
+    "notes": "",
+    "packing": "100g/bag, 5kg/foam box",
+    "image": "/images/products_docx/image49.jpg"
+  },
+  {
+    "id": "TK055",
+    "nameEn": "Sago leaf",
+    "nameVi": "Lá dong",
+    "notes": "",
+    "packing": "500g/bag, 10kg/foam box",
+    "image": "/images/products_docx/image50.jpg"
+  },
+  {
+    "id": "TK056",
+    "nameEn": "Kinh gioi leave",
+    "nameVi": "Kinh giới",
+    "notes": "",
+    "packing": "100g/bag, 10kg/foam box",
+    "image": "/images/products_docx/image51.jpg"
+  },
+  {
+    "id": "TK057",
+    "nameEn": "Choi sum",
+    "nameVi": "Cải ngọt",
+    "notes": "",
+    "packing": "200g/bag, 10kg/foam box",
+    "image": "/images/products_docx/image52.jpg"
+  },
+  {
+    "id": "TK058",
+    "nameEn": "Pak choi",
+    "nameVi": "Cải thìa",
+    "notes": "",
+    "packing": "200g/bag, 10kg/foam box",
+    "image": "/images/products_docx/image53.jpg"
+  },
+  {
+    "id": "TK059",
+    "nameEn": "Kale",
+    "nameVi": "Cải rổ",
+    "notes": "",
+    "packing": "200g/bag, 10kg/foam box",
+    "image": "/images/products_docx/image54.jpg"
+  },
+  {
+    "id": "TK060",
+    "nameEn": "Chinese mustard leave",
+    "nameVi": "Cải bẹ xanh",
+    "notes": "",
+    "packing": "200g/bag, 10kg/foam box",
+    "image": "/images/products_docx/image55.jpg"
+  },
+  {
+    "id": "TK061",
+    "nameEn": "Pak wan",
+    "nameVi": "Bồ ngót",
+    "notes": "",
+    "packing": "200g/bag, 10kg/foam box",
+    "image": "/images/products_docx/image56.jpg"
+  },
+  {
+    "id": "TK062",
+    "nameEn": "Pak pang",
+    "nameVi": "Mồng tơi",
+    "notes": "",
+    "packing": "200g/bag, 10kg/foam box",
+    "image": "/images/products_docx/image57.jpg"
+  },
+  {
+    "id": "TK063",
+    "nameEn": "Sweet potato leave",
+    "nameVi": "đọt lang",
+    "notes": "",
+    "packing": "200g/bag, 10kg/foam box",
+    "image": "/images/products_docx/image58.jpg"
+  },
+  {
+    "id": "TK064",
+    "nameEn": "Red spinach",
+    "nameVi": "Rau dền đỏ",
+    "notes": "",
+    "packing": "200g/bag, 10kg/foam box",
+    "image": "/images/products_docx/image59.jpg"
+  },
+  {
+    "id": "TK065",
+    "nameEn": "White spinach",
+    "nameVi": "Rau dền trắng",
+    "notes": "",
+    "packing": "200g/bag, 10kg/foam box",
+    "image": "/images/products_docx/image60.jpg"
+  },
+  {
+    "id": "TK067",
+    "nameEn": "Jute",
+    "nameVi": "Rau đay",
+    "notes": "",
+    "packing": "200g/bag, 10kg/foam box",
+    "image": "/images/products_docx/image61.jpg"
+  },
+  {
+    "id": "TK069",
+    "nameEn": "Water dropwort",
+    "nameVi": "Cần nước",
+    "notes": "",
+    "packing": "200g/bag, 10kg/foam box",
+    "image": "/images/products_docx/image62.jpg"
+  },
+  {
+    "id": "TK070",
+    "nameEn": "Water minosa",
+    "nameVi": "Rau nhút",
+    "notes": "",
+    "packing": "200g/bag, 10kg/foam box",
+    "image": "/images/products_docx/image63.jpg"
+  },
+  {
+    "id": "TK075",
+    "nameEn": "Lotus root",
+    "nameVi": "Củ sen",
+    "notes": "",
+    "packing": "loose, 10kg/foam box",
+    "image": "/images/products_docx/image64.jpg"
+  },
+  {
+    "id": "TK076",
+    "nameEn": "Lotus rootlet",
+    "nameVi": "Ngó sen",
+    "notes": "",
+    "packing": "200g/bag, 5kg/foam box",
+    "image": "/images/products_docx/image65.jpg"
+  },
+  {
+    "id": "TK077",
+    "nameEn": "Cut lotus rootlet",
+    "nameVi": "Ngó sen chẻ",
+    "notes": "",
+    "packing": "200g/tray, 5kg/foam box",
+    "image": "/images/products_docx/image66.jpg"
+  },
+  {
+    "id": "TK078",
+    "nameEn": "Lotus shower",
+    "nameVi": "đài sen",
+    "notes": "",
+    "packing": "Price/kg",
+    "image": "/images/products_docx/image67.jpg"
+  },
+  {
+    "id": "TK079",
+    "nameEn": "Peanut",
+    "nameVi": "đậu phộng sống",
+    "notes": "",
+    "packing": "500g/bag, 10kg/foam box",
+    "image": "/images/products_docx/image68.jpg"
+  },
+  {
+    "id": "TK080",
+    "nameEn": "Galanga",
+    "nameVi": "Riềng",
+    "notes": "",
+    "packing": "200g/tray or 1kg in vacum, 10kg/foam box",
+    "image": "/images/products_docx/image69.jpg"
+  },
+  {
+    "id": "TK081",
+    "nameEn": "Yam bean",
+    "nameVi": "Củ đậu",
+    "notes": "",
+    "packing": "loose, 10kg/foam box",
+    "image": "/images/products_docx/image70.jpg"
+  },
+  {
+    "id": "TK087",
+    "nameEn": "Mix chilli",
+    "nameVi": "Ớt hỗn hợp",
+    "notes": "",
+    "packing": "100g/tray, 10kg/foam box",
+    "image": "/images/products_docx/image71.jpg"
+  },
+  {
+    "id": "TK088",
+    "nameEn": "Red chilli",
+    "nameVi": "Ớt đỏ",
+    "notes": "",
+    "packing": "100g/tray, 10kg/foam box",
+    "image": "/images/products_docx/image72.jpg"
+  },
+  {
+    "id": "TK089",
+    "nameEn": "Green chilli",
+    "nameVi": "Ớt xanh",
+    "notes": "",
+    "packing": "100g/tray, 10kg/foam box",
+    "image": "/images/products_docx/image73.jpg"
+  },
+  {
+    "id": "TK090",
+    "nameEn": "Kayang leaf",
+    "nameVi": "Ngò om",
+    "notes": "",
+    "packing": "100g/bag, 10kg/foam box",
+    "image": "/images/products_docx/image74.jpg"
+  },
+  {
+    "id": "TK091",
+    "nameEn": "Coriander",
+    "nameVi": "Ngò rí",
+    "notes": "",
+    "packing": "100g/bag, 5kg/foam box",
+    "image": "/images/products_docx/image75.jpg"
+  },
+  {
+    "id": "TK092",
+    "nameEn": "Celery",
+    "nameVi": "Cần tây",
+    "notes": "",
+    "packing": "100g/bag, 5kg/foam box",
+    "image": "/images/products_docx/image76.jpg"
+  },
+  {
+    "id": "TK093",
+    "nameEn": "Guichai leave",
+    "nameVi": "Hẹ lá",
+    "notes": "",
+    "packing": "100g/bag, 5kg/foam box",
+    "image": "/images/products_docx/image77.jpg"
+  },
+  {
+    "id": "TK094",
+    "nameEn": "Lucky bamboo",
+    "nameVi": "Cây thần tài",
+    "notes": "",
+    "packing": "bunch with 10 stems, 5-10 bunches/foam box",
+    "image": "/images/products_docx/image78.jpg"
+  },
+  {
+    "id": "TK095",
+    "nameEn": "Bottle gourd",
+    "nameVi": "Bí đao hà nội",
+    "notes": "",
+    "packing": "loose, 10-15kg/foam box",
+    "image": "/images/products_docx/image79.jpg"
+  },
+  {
+    "id": "TK096",
+    "nameEn": "Winged bean",
+    "nameVi": "đậu rồng",
+    "notes": "",
+    "packing": "100g/tray, 200g/tray, 5kg-10kg/foam box",
+    "image": "/images/products_docx/image80.jpg"
+  },
+  {
+    "id": "TK097",
+    "nameEn": "Yardlong bean",
+    "nameVi": "đậu đũa",
+    "notes": "",
+    "packing": "200g/bag, 400g/bag, 10kg/foam box",
+    "image": "/images/products_docx/image81.jpg"
+  },
+  {
+    "id": "TK098",
+    "nameEn": "Luffa",
+    "nameVi": "Mướp hương",
+    "notes": "",
+    "packing": "loose, 10kg/foam box",
+    "image": "/images/products_docx/image82.jpg"
+  },
+  {
+    "id": "TK100",
+    "nameEn": "Green papaya",
+    "nameVi": "đu đủ xanh",
+    "notes": "",
+    "packing": "loose, 10kg/foam box",
+    "image": "/images/products_docx/image83.png"
+  },
+  {
+    "id": "TK103",
+    "nameEn": "Young slice jackfruit",
+    "nameVi": "Mít non",
+    "notes": "",
+    "packing": "200g/tray, 5kg-10kg/foam box",
+    "image": "/images/products_docx/image84.jpg"
+  },
+  {
+    "id": "TK104",
+    "nameEn": "Alovera",
+    "nameVi": "Nha đam",
+    "notes": "",
+    "packing": "loose, 5kg/foam box",
+    "image": "/images/products_docx/image85.jpg"
+  },
+  {
+    "id": "TK105",
+    "nameEn": "Pumpkin small",
+    "nameVi": "Bí rợ nhỏ",
+    "notes": "",
+    "packing": "loose, 10kg/foam box",
+    "image": "/images/products_docx/image86.jpg"
+  },
+  {
+    "id": "TK106",
+    "nameEn": "Praew Leaves",
+    "nameVi": "Răm răm",
+    "notes": "",
+    "packing": "100g/bag, 5-10kg/foam box",
+    "image": "/images/products_docx/image87.png"
+  },
+  {
+    "id": "TK107",
+    "nameEn": "Houttuynia",
+    "nameVi": "Diếp cá",
+    "notes": "",
+    "packing": "100g/bag, 5-10kg/foam box",
+    "image": "/images/products_docx/image88.jpg"
+  },
+  {
+    "id": "TK108",
+    "nameEn": "Red shallot",
+    "nameVi": "Hành tím",
+    "notes": "",
+    "packing": "200g/tray, 10kg/foam box",
+    "image": "/images/products_docx/image89.jpg"
+  },
+  {
+    "id": "TK109",
+    "nameEn": "Tumeric",
+    "nameVi": "Nghệ",
+    "notes": "",
+    "packing": "200g/tray, 10kg/foam box",
+    "image": "/images/products_docx/image90.jpg"
+  },
+  {
+    "id": "TK111",
+    "nameEn": "Calamansi",
+    "nameVi": "Trái tắc",
+    "notes": "",
+    "packing": "200g",
+    "image": "/images/products_docx/image91.png"
+  },
+  {
+    "id": "TK114",
+    "nameEn": "Baby hogplum",
+    "nameVi": "Cóc non",
+    "notes": "",
+    "packing": "500g/tray, 10kg/foam box",
+    "image": "/images/products_docx/image92.jpg"
   },
   {
     "id": "TK116",
@@ -217,7 +769,7 @@
   },
   {
     "id": "TK121",
-    "nameEn": "Orka",
+    "nameEn": "Okra",
     "nameVi": "Đậu bắp",
     "notes": "",
     "packing": "200g",

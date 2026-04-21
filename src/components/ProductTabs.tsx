@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Download, LayoutList, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import products from "../data/products.json";
@@ -9,6 +9,14 @@ export default function ProductTabs() {
   const t = useTranslations("ProductTabs");
   const [activeTab, setActiveTab] = useState("seafood");
   const [isProductListOpen, setIsProductListOpen] = useState(false);
+  const [marqueeProducts, setMarqueeProducts] = useState<typeof products>([]);
+
+  useEffect(() => {
+    // Select 15 random products that have images
+    const withImages = products.filter(p => p.image);
+    const shuffled = [...withImages].sort(() => 0.5 - Math.random());
+    setMarqueeProducts(shuffled.slice(0, 15));
+  }, []);
 
   const tabs = [
     { id: "seafood", label: t("seafood") },
@@ -105,7 +113,52 @@ export default function ProductTabs() {
         )}
       </div>
       
-      <div className="flex justify-center mt-12 mb-4">
+      <div className="mt-16 mb-8 overflow-hidden relative w-full flex flex-col items-center">
+        <style>{`
+          @keyframes infinite-scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-50% - 0.75rem)); }
+          }
+          .animate-infinite-scroll {
+            animation: infinite-scroll 45s linear infinite;
+            width: max-content;
+          }
+          .animate-infinite-scroll:hover {
+            animation-play-state: paused;
+          }
+          .marquee-wrapper::-webkit-scrollbar { display: none; }
+          .marquee-wrapper { -ms-overflow-style: none; scrollbar-width: none; }
+        `}</style>
+        
+        {marqueeProducts.length > 0 && (
+          <div className="w-full flex-1 overflow-hidden marquee-wrapper relative mb-10">
+            {/* Gradient masks for smooth edge fading */}
+            <div className="absolute inset-y-0 left-0 w-16 md:w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+            
+            <div className="flex gap-6 animate-infinite-scroll pr-6">
+              {[...marqueeProducts, ...marqueeProducts].map((p, idx) => (
+                <div key={`${p.id}-${idx}`} className="w-44 md:w-52 lg:w-60 bg-white rounded-2xl shadow-[0_2px_10px_rgb(0,0,0,0.04)] border border-slate-100 flex-shrink-0 flex flex-col overflow-hidden group cursor-pointer hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                  <div className="h-36 md:h-44 lg:h-48 bg-slate-50 relative overflow-hidden">
+                    {p.image ? (
+                      <img src={p.image} alt={p.nameEn} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                    ) : (
+                      <div className="absolute inset-0 flex items-center justify-center text-slate-300">No Image</div>
+                    )}
+                    <div className="absolute top-2 left-2 bg-white/95 backdrop-blur shadow-sm text-forest font-bold px-2 py-0.5 rounded-lg text-xs z-10 border border-slate-100">
+                      {p.id}
+                    </div>
+                  </div>
+                  <div className="p-4 text-center flex-1 flex flex-col justify-center">
+                    <p className="font-heading font-bold text-slate-800 line-clamp-1 transition-colors group-hover:text-forest" title={p.nameVi}>{p.nameVi}</p>
+                    <p className="text-xs text-slate-500 mt-1 line-clamp-1" title={p.nameEn}>{p.nameEn}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
         <button 
           onClick={() => setIsProductListOpen(true)}
           className="flex items-center gap-3 px-8 py-4 bg-forest text-white rounded-full font-heading text-lg font-bold hover:bg-forest/90 transition-transform hover:-translate-y-1 shadow-xl hover:shadow-2xl"
