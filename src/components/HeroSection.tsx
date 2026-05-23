@@ -3,9 +3,20 @@ import { useTranslations } from "next-intl";
 export default function HeroSection() {
   const t = useTranslations("Hero");
   return (
-    <section className="relative min-h-[600px] h-screen flex items-center bg-forest">
-      {/* Dynamic Logistics Truck Ticker */}
-      <div className="absolute top-[120px] lg:top-[148px] left-0 right-0 h-11 bg-black/45 backdrop-blur-sm z-20 border-b border-white/10 overflow-hidden flex items-center">
+    <section className="relative min-h-[650px] h-screen flex flex-col bg-forest overflow-hidden mt-5">
+      {/* Background with overlay (absolute behind everything) */}
+      <div
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url('/images/hero.png')` }}
+      >
+        <div className="absolute inset-0 bg-[#0F2C20]/75"></div>
+      </div>
+
+      {/* 1. Header Clearance Spacer (fixed size) */}
+      <div className="h-[90px] lg:h-[122px] shrink-0 z-10"></div>
+
+      {/* 2. Dynamic Logistics Truck Ticker (Normal block under header) */}
+      <div className="w-full h-11 bg-black/60 backdrop-blur-sm border-b border-white/10 overflow-hidden relative flex items-center shrink-0 z-20">
         <style dangerouslySetInnerHTML={{
           __html: `
           @keyframes drive {
@@ -17,8 +28,15 @@ export default function HeroSection() {
             100% { transform: rotate(360deg); }
           }
           @keyframes wave {
-            0%, 100% { transform: translateY(0) scale(1) rotate(0.5deg); }
-            50% { transform: translateY(-3px) scale(0.98) rotate(-1deg); }
+            0% { transform: translateY(0) skewY(0.6deg) rotate(0.2deg); }
+            25% { transform: translateY(-1.2px) skewY(-1deg) rotate(-0.5deg); }
+            50% { transform: translateY(0.6px) skewY(0.8deg) rotate(0.3deg); }
+            75% { transform: translateY(-0.6px) skewY(-0.6deg) rotate(-0.2deg); }
+            100% { transform: translateY(0) skewY(0.6deg) rotate(0.2deg); }
+          }
+          @keyframes ripple {
+            0% { background-position: 0% 50%; }
+            100% { background-position: -200% 50%; }
           }
           @keyframes smoke-puff-1 {
             0% { transform: translate(-2px, 2px) scale(0.4); opacity: 0.8; filter: blur(0px); }
@@ -42,6 +60,11 @@ export default function HeroSection() {
             animation: rotate-wheel 0.8s linear infinite;
             transform-origin: center;
           }
+          .animate-ribbon {
+            background: linear-gradient(135deg, #dfa135 0%, #f5c26b 25%, #dfa135 50%, #f8d391 75%, #dfa135 100%);
+            background-size: 200% auto;
+            animation: wave 2.2s ease-in-out infinite, ripple 3.5s linear infinite;
+          }
           .smoke-1 {
             animation: smoke-puff-1 1.2s ease-out infinite;
           }
@@ -58,10 +81,9 @@ export default function HeroSection() {
         {/* The moving truck container (flex aligned) */}
         <div className="absolute top-1/2 -translate-y-1/2 left-0 animate-drive flex items-center pointer-events-none select-none">
 
-          {/* 1. Trailing Ribbon (displays dynamic translated tagline) */}
+          {/* 1. Trailing Ribbon (displays dynamic translated tagline with physical waving + ripple) */}
           <div
-            className="bg-gradient-to-r from-[#dfa135] via-[#f5c26b] to-[#dfa135] text-white text-[9.5px] font-heading font-black px-3.5 py-1 rounded-l-sm rounded-r-md shadow-md border-y border-white/10 flex items-center whitespace-nowrap relative select-none uppercase tracking-wide"
-            style={{ animation: 'wave 1.6s ease-in-out infinite' }}
+            className="animate-ribbon text-white text-[9.5px] font-heading font-black px-3.5 py-1 rounded-l-sm rounded-r-md shadow-md border-y border-white/10 flex items-center whitespace-nowrap relative select-none uppercase tracking-wide transform-gpu"
           >
             {/* Swallowtail cut effect on left end */}
             <div className="absolute -left-[4px] top-0 bottom-0 w-[4px] bg-transparent flex flex-col justify-between">
@@ -147,15 +169,8 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Background with overlay */}
-      <div
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url('/images/hero.png')` }}
-      >
-        <div className="absolute inset-0 bg-[#0F2C20]/75"></div>
-      </div>
-
-      <div className="relative z-10 max-w-[1200px] mx-auto px-6 lg:px-8 text-white w-full">
+      {/* 3. Hero Content Container (flex-grow vertical flex items-center) */}
+      <div className="relative z-10 max-w-[1200px] mx-auto px-6 lg:px-8 text-white w-full flex-grow flex items-center py-8">
         <div className="max-w-3xl">
           <h1 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl leading-tight mb-6 text-white drop-shadow-md">
             {t("title")}
