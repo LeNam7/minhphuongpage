@@ -5,7 +5,7 @@ export default function HeroSection() {
   return (
     <section className="relative min-h-[600px] h-screen flex items-center bg-forest">
       {/* Dynamic Logistics Truck Ticker */}
-      <div className="absolute top-[86px] lg:top-[122px] left-0 right-0 h-11 bg-black/45 backdrop-blur-sm z-20 border-b border-white/10 overflow-hidden flex items-center">
+      <div className="absolute top-[120px] lg:top-[148px] left-0 right-0 h-11 bg-black/45 backdrop-blur-sm z-20 border-b border-white/10 overflow-hidden flex items-center">
         <style dangerouslySetInnerHTML={{
           __html: `
           @keyframes drive {
