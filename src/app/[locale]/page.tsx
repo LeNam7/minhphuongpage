@@ -1,6 +1,8 @@
 import HeroSection from "@/components/HeroSection";
 import StatsCounter from "@/components/StatsCounter";
 import ProductTabs from "@/components/ProductTabs";
+import FAQAccordion from "@/components/FAQAccordion";
+import Image from "next/image";
 import { CheckCircle2, Factory, ThermometerSnowflake, Leaf, ArrowRight, ShieldCheck, Fish, Coffee } from "lucide-react";
 import { useTranslations } from "next-intl";
 
@@ -12,6 +14,7 @@ export default function Home() {
   const tSupplyChain = useTranslations("SupplyChain");
   const tESG = useTranslations("ESG");
   const tContact = useTranslations("Contact");
+  const tFAQ = useTranslations("FAQ");
 
   return (
     <main className="w-full flex flex-col min-h-screen">
@@ -66,7 +69,7 @@ export default function Home() {
             </div>
             
             <div className="h-[500px] bg-ice-gray rounded-2xl flex items-center justify-center shadow-sm relative overflow-hidden">
-                <img src="/images/engineers.png" alt="High-tech agricultural engineers" className="w-full h-full object-cover absolute inset-0 rounded-2xl" />
+                <Image src="/images/engineers.png" alt="High-tech agricultural engineers" fill className="object-cover rounded-2xl" sizes="(max-width: 768px) 100vw, 50vw" priority />
             </div>
           </div>
         </div>
@@ -82,29 +85,29 @@ export default function Home() {
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow border-t-4 border-transparent hover:border-forest">
-              <Fish className="w-12 h-12 text-forest mb-6" />
+            <div className="group bg-white p-8 rounded-xl shadow-sm hover:shadow-xl hover:shadow-forest/5 hover:-translate-y-2 hover:scale-[1.03] transition-all duration-300 ease-out border-t-4 border-transparent hover:border-forest cursor-pointer">
+              <Fish className="w-12 h-12 text-forest mb-6 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300" />
               <h3 className="text-xl font-heading font-bold text-navy mb-2">{tFacilities("seafood_title")}</h3>
               <p className="text-forest font-semibold mb-4">{tFacilities("seafood_cap")}</p>
               <p className="text-slate-600 text-sm">{tFacilities("seafood_desc")}</p>
             </div>
             
-            <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow border-t-4 border-transparent hover:border-forest">
-              <ThermometerSnowflake className="w-12 h-12 text-forest mb-6" />
+            <div className="group bg-white p-8 rounded-xl shadow-sm hover:shadow-xl hover:shadow-forest/5 hover:-translate-y-2 hover:scale-[1.03] transition-all duration-300 ease-out border-t-4 border-transparent hover:border-forest cursor-pointer">
+              <ThermometerSnowflake className="w-12 h-12 text-forest mb-6 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300" />
               <h3 className="text-xl font-heading font-bold text-navy mb-2">{tFacilities("fruit_title")}</h3>
               <p className="text-forest font-semibold mb-4">{tFacilities("fruit_cap")}</p>
               <p className="text-slate-600 text-sm">{tFacilities("fruit_desc")}</p>
             </div>
             
-            <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow border-t-4 border-transparent hover:border-forest">
-              <Coffee className="w-12 h-12 text-forest mb-6" />
+            <div className="group bg-white p-8 rounded-xl shadow-sm hover:shadow-xl hover:shadow-forest/5 hover:-translate-y-2 hover:scale-[1.03] transition-all duration-300 ease-out border-t-4 border-transparent hover:border-forest cursor-pointer">
+              <Coffee className="w-12 h-12 text-forest mb-6 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300" />
               <h3 className="text-xl font-heading font-bold text-navy mb-2">{tFacilities("coffee_title")}</h3>
               <p className="text-forest font-semibold mb-4">{tFacilities("coffee_cap")}</p>
               <p className="text-slate-600 text-sm">{tFacilities("coffee_desc")}</p>
             </div>
             
-            <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow border-t-4 border-transparent hover:border-forest">
-              <Factory className="w-12 h-12 text-forest mb-6" />
+            <div className="group bg-white p-8 rounded-xl shadow-sm hover:shadow-xl hover:shadow-forest/5 hover:-translate-y-2 hover:scale-[1.03] transition-all duration-300 ease-out border-t-4 border-transparent hover:border-forest cursor-pointer">
+              <Factory className="w-12 h-12 text-forest mb-6 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300" />
               <h3 className="text-xl font-heading font-bold text-navy mb-2">{tFacilities("storage_title")}</h3>
               <p className="text-forest font-semibold mb-4">{tFacilities("storage_cap")}</p>
               <p className="text-slate-600 text-sm">{tFacilities("storage_desc")}</p>
@@ -214,8 +217,20 @@ export default function Home() {
           </div>
           
           <div className="h-[450px] bg-[#141d29] rounded-2xl shadow-2xl flex items-center justify-center relative overflow-hidden z-10">
-             <img src="/images/map.png" alt="Global Market Reach 15+ Countries" className="w-full h-full object-cover absolute inset-0" />
+             <Image src="/images/map.png" alt="Global Market Reach 15+ Countries" fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
           </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section id="faq" className="py-24 bg-ice-gray/40 border-t border-slate-100">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="block text-gold font-bold tracking-widest text-sm mb-4 uppercase">{tFAQ("subtitle")}</span>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-navy mb-6">{tFAQ("title")}</h2>
+            <p className="text-lg text-slate-600">{tFAQ("desc")}</p>
+          </div>
+          <FAQAccordion />
         </div>
       </section>
 
@@ -229,10 +244,10 @@ export default function Home() {
               
               <div className="bg-ice-gray p-8 rounded-xl border border-slate-100">
                   <p className="text-slate-700 mb-3"><strong>🏢 {tContact("hq")}</strong> {tContact("hq_val")}</p>
-                  <p className="text-slate-700 mb-3"><strong>📞 {tContact("hotline")}</strong> [PLACEHOLDER_PHONE]</p>
+                  <p className="text-slate-700 mb-3"><strong>📞 {tContact("hotline")}</strong> 0888979012</p>
                   <p className="text-slate-700 mb-3"><strong>✉️ {tContact("email")}</strong> contact@minhphuong.com.vn</p>
                   <p className="text-slate-700 mb-3"><strong>🌐 {tContact("org")}</strong> {tContact("org_val")}</p>
-                  <p className="text-slate-700"><strong>📜 {tContact("tax")}</strong> [PLACEHOLDER_TAX_ID]</p>
+                  <p className="text-slate-700"><strong>📜 {tContact("tax")}</strong> 3703477680</p>
               </div>
             </div>
             
@@ -285,7 +300,7 @@ export default function Home() {
           
           <div className="border-t border-slate-200 pt-8 flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center gap-3 mb-4 md:mb-0">
-               <img src="/images/logo_transparent.png" alt="Minh Phuong" className="h-14 lg:h-16 w-auto drop-shadow-sm" />
+               <Image src="/images/logo_transparent.png" alt="Minh Phuong" width={64} height={64} className="drop-shadow-sm h-14 w-auto object-contain" />
                <span className="font-heading font-extrabold text-2xl text-forest tracking-wider">MINH PHUONG</span>
             </div>
             <p className="text-slate-500 text-sm">© 2026 Minh Phuong Production, Import-Export and Trading Services Co., Ltd. All rights reserved.</p>

@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Download, LayoutList, X } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
+import Image from "next/image";
 import products from "../data/products.json";
 import enMessages from "../../messages/en.json";
 
@@ -50,7 +51,7 @@ export default function ProductTabs() {
         {activeTab === "seafood" && (
           <div className="grid md:grid-cols-2 gap-12 p-8 md:p-12 items-center animate-in fade-in duration-500">
             <div className="h-[400px] bg-slate-200 rounded-lg flex items-center justify-center border-2 border-slate-300 overflow-hidden relative">
-              <img src="/images/shrimp.png" alt="Premium Frozen Shrimp" className="absolute inset-0 w-full h-full object-cover rounded-lg" />
+              <Image src="/images/shrimp.png" alt="Premium Frozen Shrimp" fill className="object-cover rounded-lg" sizes="(max-width: 768px) 100vw, 50vw" />
             </div>
             <div>
               <h3 className="text-3xl font-heading font-bold text-forest mb-5">Seafood Mastery</h3>
@@ -111,7 +112,7 @@ export default function ProductTabs() {
         {activeTab === "frozen" && (
           <div className="grid md:grid-cols-2 gap-12 p-8 md:p-12 items-center animate-in fade-in duration-500">
             <div className="h-[400px] bg-slate-200 rounded-lg flex items-center justify-center border-2 border-slate-300 overflow-hidden relative">
-              <img src="/images/frozen_fruits.png" alt="IQF Frozen Tropical Fruits" className="absolute inset-0 w-full h-full object-cover rounded-lg" />
+              <Image src="/images/frozen_fruits.png" alt="IQF Frozen Tropical Fruits" fill className="object-cover rounded-lg" sizes="(max-width: 768px) 100vw, 50vw" />
             </div>
             <div>
               <h3 className="text-3xl font-heading font-bold text-forest mb-5">BQF / IQF Frozen Fruits</h3>
@@ -161,7 +162,7 @@ export default function ProductTabs() {
         {activeTab === "fresh" && (
           <div className="grid md:grid-cols-2 gap-12 p-8 md:p-12 items-center animate-in fade-in duration-500">
             <div className="h-[400px] bg-slate-200 rounded-lg flex items-center justify-center border-2 border-slate-300 overflow-hidden relative">
-              <img src="/images/fresh_fruits.png" alt="Fresh Orchards Produce" className="absolute inset-0 w-full h-full object-cover rounded-lg" />
+              <Image src="/images/fresh_fruits.png" alt="Fresh Orchards Produce" fill className="object-cover rounded-lg" sizes="(max-width: 768px) 100vw, 50vw" />
             </div>
             <div>
               <h3 className="text-3xl font-heading font-bold text-forest mb-5">Fresh & Dried Selections</h3>
@@ -200,7 +201,7 @@ export default function ProductTabs() {
         {activeTab === "coffee" && (
           <div className="grid md:grid-cols-2 gap-12 p-8 md:p-12 items-center animate-in fade-in duration-500">
             <div className="h-[400px] bg-slate-200 rounded-lg flex items-center justify-center border-2 border-slate-300 overflow-hidden relative">
-              <img src="/images/coffee.png" alt="Golden Robusta Coffee Beans" className="absolute inset-0 w-full h-full object-cover rounded-lg" />
+              <Image src="/images/coffee.png" alt="Golden Robusta Coffee Beans" fill className="object-cover rounded-lg" sizes="(max-width: 768px) 100vw, 50vw" />
             </div>
             <div>
               <h3 className="text-3xl font-heading font-bold text-forest mb-5">Golden Robusta Export</h3>
@@ -276,7 +277,7 @@ export default function ProductTabs() {
                 <div key={`${p.id}-${idx}`} className="w-44 md:w-52 lg:w-60 bg-white rounded-2xl shadow-[0_2px_10px_rgb(0,0,0,0.04)] border border-slate-100 flex-shrink-0 flex flex-col overflow-hidden group cursor-pointer hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
                   <div className="h-36 md:h-44 lg:h-48 bg-slate-50 relative overflow-hidden">
                     {p.image ? (
-                      <img src={p.image} alt={p.nameEn} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                      <Image src={p.image} alt={p.nameEn} fill className="object-cover transition-transform duration-700 group-hover:scale-110" sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 20vw" />
                     ) : (
                       <div className="absolute inset-0 flex items-center justify-center text-slate-300">No Image</div>
                     )}
@@ -321,7 +322,7 @@ export default function ProductTabs() {
                   <div key={idx} className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col">
                     <div className="h-48 md:h-56 lg:h-64 relative bg-slate-100 overflow-hidden">
                       {p.image ? (
-                        <img src={p.image} alt={p.nameEn} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                        <Image src={p.image} alt={p.nameEn} fill className="object-cover transition-transform duration-700 group-hover:scale-110" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" />
                       ) : (
                         <div className="absolute inset-0 flex items-center justify-center text-slate-300 font-medium bg-slate-50">No Image</div>
                       )}

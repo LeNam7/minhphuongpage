@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import Image from "next/image";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Navbar() {
@@ -63,7 +64,7 @@ export default function Navbar() {
     >
       <div className="max-w-[1200px] mx-auto px-6 lg:px-8 flex items-center justify-between">
         <a href="#" onClick={handleScrollTo} className="flex items-center">
-          <img src="/images/logo_transparent.png" alt="Minh Phuong Logo" className="h-[70px] lg:h-[90px] w-auto object-contain scale-[1.25] origin-left drop-shadow-sm" />
+          <Image src="/images/logo_transparent.png" alt="Minh Phuong Logo" width={100} height={70} className="h-[70px] lg:h-[90px] w-auto object-contain scale-[1.25] origin-left drop-shadow-sm" priority />
         </a>
 
         <nav className="hidden lg:flex items-center space-x-5 xl:space-x-8 -ml-8">

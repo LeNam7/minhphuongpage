@@ -1,10 +1,15 @@
 {
+  "Metadata": {
+    "title": "Công ty TNHH Minh Phương | Xuất Khẩu Nông Sản & Thủy Sản Cao Cấp Việt Nam",
+    "description": "Minh Phương là nhà xuất khẩu hàng đầu Việt Nam về thủy sản đông lạnh chất lượng cao, trái cây tươi/cấp đông, và cà phê Robusta hảo hạng. Đạt chứng nhận FDA, BRCGS, IFS & ISO."
+  },
   "Hero": {
     "title": "Nâng Tầm Nông Sản Việt Vì Tiêu Chuẩn Toàn Cầu",
     "subtitle": "NÔNG SẢN VIỆT – CHẤT LƯỢNG QUỐC TẾ",
     "description": "Tiên phong kiến tạo hệ sinh thái sản xuất, chế biến và xuất khẩu Nông - Thủy sản bền vững hàng đầu Việt Nam.",
     "contactBtn": "Liên Hệ Đội Ngũ Xuất Khẩu",
-    "downloadBtn": "Tải Hồ Sơ Năng Lực"
+    "downloadBtn": "Tải Hồ Sơ Năng Lực",
+    "ribbon": "Minh Phương Mang Thực Phẩm An Toàn, Minh Bạch Đến Toàn Thế Giới"
   },
   "Nav": {
     "about": "Về Chúng Tôi",
@@ -15,7 +20,7 @@
     "quote": "Nhận Báo Giá"
   },
   "About": {
-    "subtitle": "Overview",
+    "subtitle": "Tổng Quan",
     "title": "Mang Thực Phẩm An Toàn, Minh Bạch Đến Toàn Thế Giới",
     "desc": "Định hình lại giá trị chuỗi cung ứng nông nghiệp công nghệ cao. Minh Phương cam kết cung cấp sản phẩm nông – thủy sản chất lượng, truy xuất nguồn gốc minh bạch từ nông trại đến bàn ăn.",
     "quality_title": "Chất lượng:",
@@ -27,32 +32,32 @@
     "cta": "Khám Phá Hệ Sinh Thái"
   },
   "Facilities": {
-    "subtitle": "Capacity & Tech",
-    "title": "World-class Manufacturing Infrastructure",
+    "subtitle": "Năng Lực & Kỹ Thuật",
+    "title": "Cơ Sở Hạ Tầng Sản Xuất Đạt Chuẩn Quốc Tế",
     "desc": "5 nhà máy tiên tiến vận hành chuẩn Kaizen với dây chuyền BQF/IQF tự động hiện đại.",
-    "seafood_title": "Seafood Facilities",
+    "seafood_title": "Cơ Sở Chế Biến Thủy Sản",
     "seafood_cap": "25,000 tấn/năm",
     "seafood_desc": "Chuyên gia công tôm đông lạnh và sản phẩm chế biến sâu tinh xảo chuẩn Nhật Bản.",
-    "fruit_title": "Fruit IQF & Drying",
+    "fruit_title": "Nhà Máy Trái Cây IQF & Sấy Khô",
     "fruit_cap": "2,000 tấn/tháng",
     "fruit_desc": "Công nghệ BQF/IQF siêu tốc và sấy gia nhiệt cao cấp, giữ trọn vẹn sức sống tự nhiên.",
-    "coffee_title": "Golden Robusta Plant",
+    "coffee_title": "Nhà Máy Cà Phê Robusta Hảo Hạng",
     "coffee_cap": "30,000 tấn/năm",
     "coffee_desc": "Dây chuyền tuyển chọn quang học tự động & hệ thống rang xay chuẩn xuất khẩu Mỹ/Âu.",
-    "storage_title": "Cold Storage HQ",
+    "storage_title": "Hệ Thống Kho Lạnh AI",
     "storage_cap": "5,000 Pallets",
     "storage_desc": "Kho vận logistics độc lập, hệ thống kiểm soát vi sinh & nhiệt độ điều khiển chính xác bằng AI."
   },
   "Products": {
-    "subtitle": "Catalog",
-    "title": "Premium Products for Global Demands",
+    "subtitle": "Danh Mục Sản Phẩm",
+    "title": "Sản Phẩm Chất Lượng Cao Cho Thị Trường Toàn Cầu",
     "desc": "Truy xuất 100% về nguồn. Đa dạng danh mục & cam kết số lượng lớn, ổn định cho thị trường B2B."
   },
   "ProductTabs": {
-    "seafood": "Shrimp & Seafood",
-    "frozen": "Frozen Fruits",
-    "fresh": "Fresh & Dried Fruits",
-    "coffee_tab": "Golden Robusta Coffee",
+    "seafood": "Tôm & Hải Sản Cấp Đông",
+    "frozen": "Trái Cây Cấp Đông (IQF)",
+    "fresh": "Trái Cây Tươi & Sấy Dẻo",
+    "coffee_tab": "Cà Phê Robusta Tây Nguyên",
     "seafood_desc": "Cung cấp đầy đủ các dòng tôm nguyên liệu đến chế biến sâu tỉ mỉ.",
     "seafood_1_label": "Sơ chế:",
     "seafood_1_val": "Tôm tươi nguyên liệu, Nobashi, Butterfly, Easy-peel.",
@@ -75,38 +80,38 @@
     "fresh_2_label": "Trái Cây Sấy:",
     "fresh_2_val": "Sấy khô & Sấy dẻo tiêu chuẩn Âu - Mỹ, lưu giữ độ dẻo và dưỡng chất hoàn hảo.",
     "coffee_desc": "Kiệt tác cà phê cao nguyên B'Lao độ cao 1.000m. Hương vị đậm đà, đóng gói xuất khẩu ưu việt.",
-    "coffee_1_label": "Green Bean (Clean):",
+    "coffee_1_label": "Hạt nhân xanh (Sạch):",
     "coffee_1_val": "Kích cỡ 13, 16, 18, 20. Độ ẩm thấp.",
-    "coffee_2_label": "Green Bean (Wet):",
+    "coffee_2_label": "Hạt nhân xanh (Chế biến ướt):",
     "coffee_2_val": "Dòng chế biến ướt cao cấp, tạp chất siêu thấp.",
-    "coffee_3_label": "Pea Berry (Culi):",
+    "coffee_3_label": "Hạt culi (Peaberry):",
     "coffee_3_val": "Hạt tròn đặc biệt, định vị cao cấp.",
     "view_product_list": "Xem toàn bộ sản phẩm"
   },
   "SupplyChain": {
-    "subtitle": "Traceability",
-    "title": "From Farm to Port - Fully Integrated",
+    "subtitle": "Truy Xuất Nguồn Gốc",
+    "title": "Chuỗi Logistics Lạnh Tích Hợp Khép Kín Từ Nông Trại Đến Cảng Biển",
     "desc": "Kiểm soát chất lượng tuyệt đối qua hệ sinh thái 4 bước khép kín phủ sóng toàn miền Nam và Tây Nguyên.",
-    "step1_title": "Harvest & Transport",
+    "step1_title": "Thu Hoạch & Vận Chuyển",
     "step1_desc": "1200+ Ha chuối, 500+ Ha cây ăn trái. Thu hoạch chuẩn độ brix & vận chuyển xe tải lạnh toàn trình.",
-    "step2_title": "Process & Package",
+    "step2_title": "Chế Biến & Đóng Gói",
     "step2_desc": "Hệ thống chế biến khép kín vô trùng tại 5 cụm nhà máy công suất cao hàng chục nghìn tấn.",
-    "step3_title": "Cold Storage HQ",
+    "step3_title": "Kho Lạnh Bảo Quản AI",
     "step3_desc": "Bảo quản hàng ngàn Pallet điều hòa nhiệt tự động 24/7 trước khi di chuyển tới cảng biển.",
-    "step4_title": "Export & Distribute",
-    "step4_desc": "Giao hàng đúng cam kết (Ocean/Air) tới thị trường toàn cầu linh hoạt và chính xác."
+    "step4_title": "Xuất Khẩu & Phân Phối",
+    "step4_desc": "Giao hàng đúng cam kết (Đường biển/Đường hàng không) tới thị trường toàn cầu linh hoạt và chính xác."
   },
   "ESG": {
-    "subtitle": "Vision 2030",
-    "title": "Innovating for a Sustainable Future",
+    "subtitle": "Tầm Nhìn 2030",
+    "title": "Phát Triển Bền Vững & Chú Trọng Báo Cáo ESG",
     "desc": "Mục tiêu 100 triệu USD/năm doanh thu xuất khẩu nông - thủy sản. Chúng tôi đang xây dựng hệ thống nền tảng vững vàng vì môi trường và uy tín dài lâu trên bản đồ thế giới.",
-    "blockchain_title": "Blockchain Traceability",
+    "blockchain_title": "Truy Xuất Nguồn Gốc Blockchain",
     "blockchain_desc": "Nông nghiệp 4.0 với minh bạch đường đi của từng trái cây đến tay khách hàng.",
-    "lowemission_title": "Low-emission Chain",
+    "lowemission_title": "Chuỗi Cung Ứng Phát Thải Thấp",
     "lowemission_desc": "Triển khai mạnh mẽ chiến lược phát thải thấp và báo cáo ESG chuẩn Liên hợp quốc."
   },
   "Contact": {
-    "title": "Ready to Elevate Your Supply Chain?",
+    "title": "Sẵn Sàng Nâng Tầm Chuỗi Cung Ứng Của Bạn?",
     "desc": "Liên hệ đội ngũ Kinh doanh Xuất khẩu của chúng tôi. Yêu cầu báo giá của bạn sẽ được tư vấn chuyên sâu và phản hồi trong vòng 24 giờ.",
     "hq": "Trụ Sở Đầu Não:",
     "hq_val": "Việt Nam",
@@ -127,5 +132,18 @@
     "farmlandSub": "Chủ động nguồn nguyên liệu",
     "export": "Quốc Gia Nhập Khẩu",
     "exportSub": "Mạng lưới đối tác rộng khắp"
+  },
+  "FAQ": {
+    "subtitle": "Giải đáp thắc mắc",
+    "title": "Câu Hỏi Thường Gặp Về Nhập Khẩu",
+    "desc": "Dưới đây là các câu trả lời ngắn gọn về năng lực sản xuất, quy trình và dịch vụ xuất khẩu B2B của chúng tôi.",
+    "q1": "Minh Phương có những chứng nhận chất lượng nào cho hàng xuất khẩu?",
+    "a1": "Toàn bộ cơ sở hạ tầng và sản phẩm của chúng tôi đều đạt các chứng nhận quốc tế cao cấp nhất: FDA (Hoa Kỳ), BRCGS, IFS Food, ISO 22000, HACCP, HALAL, BSCI và EU DL200 phục vụ xuất khẩu trực tiếp sang thị trường Mỹ, Châu Âu, Nhật Bản và Trung Đông.",
+    "q2": "Sản lượng cung ứng tối thiểu (MOQ) đối với các đơn hàng xuất khẩu là bao nhiêu?",
+    "a2": "Đối với thủy sản đông lạnh (IQF/BQF) và trái cây cấp đông, sản lượng tối thiểu (MOQ) thông thường là 1 container 20ft lạnh (FCL). Đối với cà phê hạt Robusta xuất khẩu, MOQ tiêu chuẩn là 1 container 20ft khô. Chúng tôi có hỗ trợ ghép cont thử nghiệm đối với một số mặt hàng đặc thù.",
+    "q3": "Minh Phương kiểm soát chất lượng và độ an toàn vệ sinh thực phẩm như thế nào?",
+    "a3": "Chúng tôi vận hành chuỗi cung ứng khép kín 100% từ nông trại đến cảng biển. Tất cả sản phẩm đều được kiểm tra dư lượng vi sinh, kháng sinh nghiêm ngặt trước khi đóng gói tại hệ thống 5 nhà máy chuẩn vô trùng Kaizen, lưu kho AI bảo quản lạnh 24/7.",
+    "q4": "Công ty có hỗ trợ đóng gói OEM/ODM theo yêu cầu thương hiệu riêng không?",
+    "a4": "Có, Minh Phương cung cấp giải pháp đóng gói trọn gói dạng OEM/ODM, in ấn bao bì đa ngôn ngữ, đóng túi hút chân không, thùng carton cao cấp chống ẩm đạt chuẩn phân phối siêu thị quốc tế theo thông số kỹ thuật (Spec) yêu cầu từ phía đối tác."
   }
 }

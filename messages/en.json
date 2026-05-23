@@ -1,10 +1,15 @@
 {
+  "Metadata": {
+    "title": "Minh Phuong Co., Ltd | Premium Vietnam Agri-Food & Seafood Export",
+    "description": "Minh Phuong is a leading Vietnamese exporter of high-quality frozen seafood, fresh/frozen fruits, and premium Golden Robusta coffee. FDA, BRCGS, IFS & ISO certified."
+  },
   "Hero": {
     "title": "Elevating Vietnamese Agriculture to Global Standards",
     "subtitle": "VIETNAMESE AGRICULTURE - INTERNATIONAL QUALITY",
     "description": "Pioneering the creation of a leading sustainable high-tech agricultural and seafood production, processing, and export ecosystem in Vietnam.",
     "contactBtn": "Contact Our Export Team",
-    "downloadBtn": "Download Company Profile"
+    "downloadBtn": "Download Company Profile",
+    "ribbon": "Minh Phuong - Empowering the World with Safe, Traceable Food"
   },
   "Nav": {
     "about": "About Us",
@@ -127,5 +132,18 @@
     "farmlandSub": "Raw material zones",
     "export": "Export Markets",
     "exportSub": "Importing countries"
+  },
+  "FAQ": {
+    "subtitle": "Frequently Asked Questions",
+    "title": "B2B Export & Logistics FAQ",
+    "desc": "Find quick answers regarding our global B2B agricultural sourcing, processing standards, and distribution channels.",
+    "q1": "What quality certifications does Minh Phuong have for export goods?",
+    "a1": "All our facilities and products meet the highest global standards: FDA, BRCGS, IFS Food, ISO 22000, HACCP, HALAL, BSCI, and EU DL200. We regularly export directly to the US, Europe, Japan, and the Middle East.",
+    "q2": "What is the Minimum Order Quantity (MOQ) for export orders?",
+    "a2": "For frozen seafood (IQF/BQF) and frozen tropical fruits, the standard MOQ is 1 x 20ft refrigerated container (FCL). For Robusta coffee beans, the MOQ is 1 x 20ft dry container. We also support consolidated test shipments under special conditions.",
+    "q3": "How does Minh Phuong control food safety and product consistency?",
+    "a3": "We operate a 100% integrated supply chain from farm to port. Every single batch is thoroughly tested for chemical and microbiological residues before sterile packaging at our 5 Kaizen-managed factories and AI-controlled cold storage.",
+    "q4": "Do you offer OEM/ODM packaging services for private label brands?",
+    "a4": "Yes, we provide full OEM/ODM manufacturing and private labeling solutions, including customized multilingual retail bags, vacuum-sealed packaging, and heavy-duty moisture-proof cartons matching your exact market specifications."
   }
 }
