@@ -23,8 +23,6 @@ export default function FloatingChat() {
           className="group relative flex items-center justify-center w-14 h-14 bg-[#0068ff] rounded-full shadow-lg hover:shadow-[#0068ff]/30 hover:-translate-y-1 transition-all duration-300 active:scale-95 outline-none focus:outline-none"
           aria-label="Contact via Zalo"
         >
-          {/* Pulsing ring animation */}
-          <span className="absolute inset-0 rounded-full bg-[#0068ff]/30 animate-ping opacity-75 group-hover:animate-none"></span>
           
           {/* Custom Zalo Icon SVG */}
           <svg 

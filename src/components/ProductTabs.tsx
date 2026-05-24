@@ -97,6 +97,23 @@ export default function ProductTabs() {
   const [isPaused, setIsPaused] = useState(false);
   const tabsContainerRef = useRef<HTMLDivElement>(null);
 
+  const outerContainerRef = useRef<HTMLDivElement>(null);
+  const [isIntersecting, setIsIntersecting] = useState(true);
+
+  useEffect(() => {
+    if (typeof window === "undefined" || !("IntersectionObserver" in window)) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsIntersecting(entry.isIntersecting);
+      },
+      { threshold: 0.05 }
+    );
+    if (outerContainerRef.current) {
+      observer.observe(outerContainerRef.current);
+    }
+    return () => observer.disconnect();
+  }, []);
+
   const tabs = [
     { id: "seafood", label: t("seafood") },
     { id: "frozen", label: t("frozen") },
@@ -115,7 +132,7 @@ export default function ProductTabs() {
 
   // Auto-play Carousel Effect
   useEffect(() => {
-    if (isPaused) return;
+    if (isPaused || !isIntersecting) return;
 
     const interval = setInterval(() => {
       setActiveTab((current) => {
@@ -126,7 +143,7 @@ export default function ProductTabs() {
     }, 6000); // Transitions every 6 seconds
 
     return () => clearInterval(interval);
-  }, [activeTab, isPaused]);
+  }, [activeTab, isPaused, isIntersecting]);
 
   // Smooth scroll active tab button to the left side of the container on small screens
   useEffect(() => {
@@ -163,6 +180,7 @@ export default function ProductTabs() {
 
   return (
     <div 
+      ref={outerContainerRef}
       className="w-full mt-12"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
@@ -203,7 +221,7 @@ export default function ProductTabs() {
         </div>
       </div>
 
-      <div className="relative bg-ice-gray rounded-xl overflow-hidden shadow-sm md:min-h-[560px] flex flex-col justify-stretch">
+      <div className="relative bg-ice-gray rounded-xl overflow-hidden shadow-sm min-h-[660px] sm:min-h-[610px] md:min-h-[560px] lg:min-h-[520px] flex flex-col justify-stretch">
         {/* Subtle auto-advance progress indicator */}
         <div 
           className="absolute top-0 left-0 h-1 bg-gold/85 z-20 transition-all duration-100"
@@ -233,31 +251,31 @@ export default function ProductTabs() {
           @keyframes premiumFadeInLeft {
             0% {
               opacity: 0;
-              transform: translateX(-40px) scale(0.96);
+              transform: translate3d(-40px, 0, 0) scale3d(0.96, 0.96, 1);
             }
             100% {
               opacity: 1;
-              transform: translateX(0) scale(1);
+              transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
             }
           }
           @keyframes premiumFadeInRight {
             0% {
               opacity: 0;
-              transform: translateX(40px);
+              transform: translate3d(40px, 0, 0);
             }
             100% {
               opacity: 1;
-              transform: translateX(0);
+              transform: translate3d(0, 0, 0);
             }
           }
           @keyframes staggerItem {
             0% {
               opacity: 0;
-              transform: translateY(15px);
+              transform: translate3d(0, 15px, 0);
             }
             100% {
               opacity: 1;
-              transform: translateY(0);
+              transform: translate3d(0, 0, 0);
             }
           }
         `}} />
@@ -586,7 +604,7 @@ export default function ProductTabs() {
             <div className="absolute inset-y-0 left-0 w-16 md:w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
             <div className="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
             
-            <div className="flex gap-6 animate-infinite-scroll pr-6">
+            <div className="flex gap-6 animate-infinite-scroll pr-6 will-change-transform transform-gpu">
               {[...marqueeProducts, ...marqueeProducts].map((p, idx) => (
                 <div key={`${p.id}-${idx}`} className="w-44 md:w-52 lg:w-60 bg-white rounded-2xl shadow-[0_2px_10px_rgb(0,0,0,0.04)] border border-slate-100 flex-shrink-0 flex flex-col overflow-hidden group cursor-pointer hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
                   <div className="h-36 md:h-44 lg:h-48 bg-slate-50 relative overflow-hidden">
