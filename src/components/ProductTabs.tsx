@@ -125,22 +125,36 @@ export default function ProductTabs() {
     return () => clearInterval(interval);
   }, [activeTab]);
 
-  // Smooth scroll active tab button into view on small screens (only within container to avoid window scroll jump)
+  // Smooth scroll active tab button to the left side of the container on small screens
   useEffect(() => {
     if (tabsContainerRef.current) {
       const container = tabsContainerRef.current;
-      const activeEl = container.querySelector('[data-active="true"]') as HTMLElement;
-      if (activeEl) {
-        const containerWidth = container.offsetWidth;
-        const buttonLeft = activeEl.offsetLeft;
-        const buttonWidth = activeEl.offsetWidth;
-        const targetScrollLeft = buttonLeft - containerWidth / 2 + buttonWidth / 2;
-        
-        container.scrollTo({
-          left: targetScrollLeft,
-          behavior: "smooth"
-        });
-      }
+      
+      const performScroll = () => {
+        const activeEl = container.querySelector('[data-active="true"]') as HTMLElement;
+        if (activeEl) {
+          const buttonLeft = activeEl.offsetLeft;
+          // Align the button to the left edge of the container with a 16px padding offset
+          const targetScrollLeft = buttonLeft - 16;
+          
+          container.scrollTo({
+            left: Math.max(0, targetScrollLeft),
+            behavior: "smooth"
+          });
+        }
+      };
+
+      // Run once immediately
+      performScroll();
+
+      // Run again at 150ms and 300ms to adjust scroll as width layout settles during CSS transition
+      const timer1 = setTimeout(performScroll, 150);
+      const timer2 = setTimeout(performScroll, 300);
+
+      return () => {
+        clearTimeout(timer1);
+        clearTimeout(timer2);
+      };
     }
   }, [activeTab]);
 
@@ -150,7 +164,7 @@ export default function ProductTabs() {
       <div className="w-full flex justify-start lg:justify-center">
         <div 
           ref={tabsContainerRef}
-          className="flex flex-row overflow-x-auto snap-x justify-start items-center gap-3 md:gap-5 mb-12 pb-5 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden px-4 max-w-full"
+          className="flex flex-row overflow-x-auto justify-start items-center gap-3 md:gap-5 mb-12 pb-5 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden px-4 max-w-full"
         >
           {tabs.map((tab) => {
             const isActive = activeTab === tab.id;
@@ -159,7 +173,7 @@ export default function ProductTabs() {
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
                 data-active={isActive}
-                className={`snap-start flex items-center gap-3 px-3 py-2.5 rounded-2xl transition-all duration-500 ease-out border-2 select-none group cursor-pointer ${
+                className={`flex-shrink-0 flex items-center gap-3 px-3 py-2.5 rounded-2xl transition-all duration-500 ease-out border-2 select-none group cursor-pointer ${
                   isActive
                     ? "bg-forest border-forest text-white shadow-[0_4px_15px_rgba(26,62,43,0.18)] scale-102"
                     : "bg-white/60 border-slate-200/80 text-slate-500 hover:bg-white hover:border-slate-300 hover:text-slate-700"
