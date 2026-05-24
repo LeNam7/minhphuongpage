@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Download, LayoutList, X } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
@@ -94,13 +94,8 @@ export default function ProductTabs() {
   const [activeTab, setActiveTab] = useState("seafood");
   const [isProductListOpen, setIsProductListOpen] = useState(false);
   const [marqueeProducts, setMarqueeProducts] = useState<typeof products>([]);
-
-  useEffect(() => {
-    // Select 15 random products that have images
-    const withImages = products.filter(p => p.image);
-    const shuffled = [...withImages].sort(() => 0.5 - Math.random());
-    setMarqueeProducts(shuffled.slice(0, 15));
-  }, []);
+  const [isPaused, setIsPaused] = useState(false);
+  const tabsContainerRef = useRef<HTMLDivElement>(null);
 
   const tabs = [
     { id: "seafood", label: t("seafood") },
@@ -111,17 +106,61 @@ export default function ProductTabs() {
     { id: "ceramics", label: t("ceramics") },
   ];
 
+  useEffect(() => {
+    // Select 15 random products that have images
+    const withImages = products.filter(p => p.image);
+    const shuffled = [...withImages].sort(() => 0.5 - Math.random());
+    setMarqueeProducts(shuffled.slice(0, 15));
+  }, []);
+
+  // Auto-play Carousel Effect
+  useEffect(() => {
+    if (isPaused) return;
+
+    const interval = setInterval(() => {
+      setActiveTab((current) => {
+        const currentIndex = tabs.findIndex((tab) => tab.id === current);
+        const nextIndex = (currentIndex + 1) % tabs.length;
+        return tabs[nextIndex].id;
+      });
+    }, 6000); // Transitions every 6 seconds
+
+    return () => clearInterval(interval);
+  }, [activeTab, isPaused]);
+
+  // Smooth scroll active tab button into view on small screens
+  useEffect(() => {
+    if (tabsContainerRef.current) {
+      const activeEl = tabsContainerRef.current.querySelector('[data-active="true"]');
+      if (activeEl) {
+        activeEl.scrollIntoView({
+          behavior: "smooth",
+          block: "nearest",
+          inline: "center",
+        });
+      }
+    }
+  }, [activeTab]);
+
   return (
-    <div className="w-full mt-12">
+    <div 
+      className="w-full mt-12"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
       {/* Wrapper to center the tabs container if it fits, or align to start if it overflows */}
       <div className="w-full flex justify-start lg:justify-center">
-        <div className="flex flex-row overflow-x-auto snap-x justify-start items-center gap-3 md:gap-5 mb-12 pb-5 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden px-4 max-w-full">
+        <div 
+          ref={tabsContainerRef}
+          className="flex flex-row overflow-x-auto snap-x justify-start items-center gap-3 md:gap-5 mb-12 pb-5 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden px-4 max-w-full"
+        >
           {tabs.map((tab) => {
             const isActive = activeTab === tab.id;
             return (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
+                data-active={isActive}
                 className={`snap-start flex items-center gap-3 px-3 py-2.5 rounded-2xl transition-all duration-500 ease-out border-2 select-none group cursor-pointer ${
                   isActive
                     ? "bg-forest border-forest text-white shadow-[0_4px_15px_rgba(26,62,43,0.18)] scale-102"
@@ -145,8 +184,22 @@ export default function ProductTabs() {
         </div>
       </div>
 
-      <div className="bg-ice-gray rounded-xl overflow-hidden shadow-sm">
+      <div className="relative bg-ice-gray rounded-xl overflow-hidden shadow-sm">
+        {/* Subtle auto-advance progress indicator */}
+        <div 
+          className="absolute top-0 left-0 h-1 bg-gold/85 z-20 transition-all duration-100"
+          style={{
+            animation: isPaused ? 'none' : 'tabProgress 6000ms linear forwards',
+            width: isPaused ? '0%' : undefined
+          }}
+          key={`${activeTab}-${isPaused}`} // Resets animation when tab changes or pauses
+        />
+
         <style dangerouslySetInnerHTML={{__html: `
+          @keyframes tabProgress {
+            from { width: 0%; }
+            to { width: 100%; }
+          }
           .premium-anim-left {
             animation: premiumFadeInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
           }
