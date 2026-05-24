@@ -94,7 +94,6 @@ export default function ProductTabs() {
   const [activeTab, setActiveTab] = useState("seafood");
   const [isProductListOpen, setIsProductListOpen] = useState(false);
   const [marqueeProducts, setMarqueeProducts] = useState<typeof products>([]);
-  const [isPaused, setIsPaused] = useState(false);
   const tabsContainerRef = useRef<HTMLDivElement>(null);
 
   const tabs = [
@@ -115,8 +114,6 @@ export default function ProductTabs() {
 
   // Auto-play Carousel Effect
   useEffect(() => {
-    if (isPaused) return;
-
     const interval = setInterval(() => {
       setActiveTab((current) => {
         const currentIndex = tabs.findIndex((tab) => tab.id === current);
@@ -126,28 +123,29 @@ export default function ProductTabs() {
     }, 6000); // Transitions every 6 seconds
 
     return () => clearInterval(interval);
-  }, [activeTab, isPaused]);
+  }, [activeTab]);
 
-  // Smooth scroll active tab button into view on small screens
+  // Smooth scroll active tab button into view on small screens (only within container to avoid window scroll jump)
   useEffect(() => {
     if (tabsContainerRef.current) {
-      const activeEl = tabsContainerRef.current.querySelector('[data-active="true"]');
+      const container = tabsContainerRef.current;
+      const activeEl = container.querySelector('[data-active="true"]') as HTMLElement;
       if (activeEl) {
-        activeEl.scrollIntoView({
-          behavior: "smooth",
-          block: "nearest",
-          inline: "center",
+        const containerWidth = container.offsetWidth;
+        const buttonLeft = activeEl.offsetLeft;
+        const buttonWidth = activeEl.offsetWidth;
+        const targetScrollLeft = buttonLeft - containerWidth / 2 + buttonWidth / 2;
+        
+        container.scrollTo({
+          left: targetScrollLeft,
+          behavior: "smooth"
         });
       }
     }
   }, [activeTab]);
 
   return (
-    <div 
-      className="w-full mt-12"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-    >
+    <div className="w-full mt-12">
       {/* Wrapper to center the tabs container if it fits, or align to start if it overflows */}
       <div className="w-full flex justify-start lg:justify-center">
         <div 
@@ -184,15 +182,14 @@ export default function ProductTabs() {
         </div>
       </div>
 
-      <div className="relative bg-ice-gray rounded-xl overflow-hidden shadow-sm">
+      <div className="relative bg-ice-gray rounded-xl overflow-hidden shadow-sm md:min-h-[560px] flex flex-col justify-stretch">
         {/* Subtle auto-advance progress indicator */}
         <div 
           className="absolute top-0 left-0 h-1 bg-gold/85 z-20 transition-all duration-100"
           style={{
-            animation: isPaused ? 'none' : 'tabProgress 6000ms linear forwards',
-            width: isPaused ? '0%' : undefined
+            animation: 'tabProgress 6000ms linear forwards'
           }}
-          key={`${activeTab}-${isPaused}`} // Resets animation when tab changes or pauses
+          key={activeTab} // Resets animation when tab changes
         />
 
         <style dangerouslySetInnerHTML={{__html: `
@@ -244,13 +241,13 @@ export default function ProductTabs() {
         `}} />
 
         {activeTab === "seafood" && (
-          <div className="grid md:grid-cols-2 gap-12 p-8 md:p-12 items-center">
-            <div className="h-[400px] bg-slate-200 rounded-lg flex items-center justify-center border-2 border-slate-300 overflow-hidden relative premium-anim-left">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 p-6 md:p-10 items-stretch flex-grow">
+            <div className="relative h-full min-h-[350px] md:min-h-[400px] bg-slate-200 rounded-lg overflow-hidden border-2 border-slate-300 premium-anim-left">
               <Image src="/images/shrimp.png" alt="Premium Frozen Shrimp" fill className="object-cover rounded-lg" sizes="(max-width: 768px) 100vw, 50vw" />
             </div>
-            <div className="premium-anim-right">
-              <h3 className="text-3xl font-heading font-bold text-forest mb-5">Seafood Mastery</h3>
-              <div className="mb-8 p-5 bg-white rounded-xl shadow-md border border-slate-100 border-l-4 border-l-gold">
+            <div className="premium-anim-right flex flex-col justify-center">
+              <h3 className="text-3xl font-heading font-bold text-forest mb-4">Seafood Mastery</h3>
+              <div className="mb-6 p-4 md:p-5 bg-white rounded-xl shadow-md border border-slate-100 border-l-4 border-l-gold">
                 <p className="text-slate-700 text-[15px] font-medium leading-relaxed">{t("seafood_desc")}</p>
                 {isVi && <p className="text-[13px] text-slate-400 mt-2">{enMessages.ProductTabs.seafood_desc}</p>}
               </div>
@@ -305,13 +302,13 @@ export default function ProductTabs() {
         )}
         
         {activeTab === "frozen" && (
-          <div className="grid md:grid-cols-2 gap-12 p-8 md:p-12 items-center">
-            <div className="h-[400px] bg-slate-200 rounded-lg flex items-center justify-center border-2 border-slate-300 overflow-hidden relative premium-anim-left">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 p-6 md:p-10 items-stretch flex-grow">
+            <div className="relative h-full min-h-[350px] md:min-h-[400px] bg-slate-200 rounded-lg overflow-hidden border-2 border-slate-300 premium-anim-left">
               <Image src="/images/frozen_fruits.png" alt="IQF Frozen Tropical Fruits" fill className="object-cover rounded-lg" sizes="(max-width: 768px) 100vw, 50vw" />
             </div>
-            <div className="premium-anim-right">
-              <h3 className="text-3xl font-heading font-bold text-forest mb-5">BQF / IQF Frozen Fruits</h3>
-              <div className="mb-8 p-5 bg-white rounded-xl shadow-md border border-slate-100 border-l-4 border-l-gold">
+            <div className="premium-anim-right flex flex-col justify-center">
+              <h3 className="text-3xl font-heading font-bold text-forest mb-4">BQF / IQF Frozen Fruits</h3>
+              <div className="mb-6 p-4 md:p-5 bg-white rounded-xl shadow-md border border-slate-100 border-l-4 border-l-gold">
                 <p className="text-slate-700 text-[15px] font-medium leading-relaxed">{t("frozen_desc")}</p>
                 {isVi && <p className="text-[13px] text-slate-400 mt-2">{enMessages.ProductTabs.frozen_desc}</p>}
               </div>
@@ -355,13 +352,13 @@ export default function ProductTabs() {
         )}
 
         {activeTab === "fresh" && (
-          <div className="grid md:grid-cols-2 gap-12 p-8 md:p-12 items-center">
-            <div className="h-[400px] bg-slate-200 rounded-lg flex items-center justify-center border-2 border-slate-300 overflow-hidden relative premium-anim-left">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 p-6 md:p-10 items-stretch flex-grow">
+            <div className="relative h-full min-h-[350px] md:min-h-[400px] bg-slate-200 rounded-lg overflow-hidden border-2 border-slate-300 premium-anim-left">
               <Image src="/images/fresh_fruits.png" alt="Fresh Orchards Produce" fill className="object-cover rounded-lg" sizes="(max-width: 768px) 100vw, 50vw" />
             </div>
-            <div className="premium-anim-right">
-              <h3 className="text-3xl font-heading font-bold text-forest mb-5">Fresh & Dried Selections</h3>
-              <div className="mb-8 p-5 bg-white rounded-xl shadow-md border border-slate-100 border-l-4 border-l-gold">
+            <div className="premium-anim-right flex flex-col justify-center">
+              <h3 className="text-3xl font-heading font-bold text-forest mb-4">Fresh & Dried Selections</h3>
+              <div className="mb-6 p-4 md:p-5 bg-white rounded-xl shadow-md border border-slate-100 border-l-4 border-l-gold">
                 <p className="text-slate-700 text-[15px] font-medium leading-relaxed">{t("fresh_desc")}</p>
                 {isVi && <p className="text-[13px] text-slate-400 mt-2">{enMessages.ProductTabs.fresh_desc}</p>}
               </div>
@@ -394,13 +391,13 @@ export default function ProductTabs() {
         )}
 
         {activeTab === "coffee" && (
-          <div className="grid md:grid-cols-2 gap-12 p-8 md:p-12 items-center">
-            <div className="h-[400px] bg-slate-200 rounded-lg flex items-center justify-center border-2 border-slate-300 overflow-hidden relative premium-anim-left">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 p-6 md:p-10 items-stretch flex-grow">
+            <div className="relative h-full min-h-[350px] md:min-h-[400px] bg-slate-200 rounded-lg overflow-hidden border-2 border-slate-300 premium-anim-left">
               <Image src="/images/coffee.png" alt="Golden Robusta Coffee Beans" fill className="object-cover rounded-lg" sizes="(max-width: 768px) 100vw, 50vw" />
             </div>
-            <div className="premium-anim-right">
-              <h3 className="text-3xl font-heading font-bold text-forest mb-5">Golden Robusta Export</h3>
-              <div className="mb-8 p-5 bg-white rounded-xl shadow-md border border-slate-100 border-l-4 border-l-gold">
+            <div className="premium-anim-right flex flex-col justify-center">
+              <h3 className="text-3xl font-heading font-bold text-forest mb-4">Golden Robusta Export</h3>
+              <div className="mb-6 p-4 md:p-5 bg-white rounded-xl shadow-md border border-slate-100 border-l-4 border-l-gold">
                 <p className="text-slate-700 text-[15px] font-medium leading-relaxed">{t("coffee_desc")}</p>
                 {isVi && <p className="text-[13px] text-slate-400 mt-2">{enMessages.ProductTabs.coffee_desc}</p>}
               </div>
@@ -444,13 +441,13 @@ export default function ProductTabs() {
         )}
 
         {activeTab === "cashew" && (
-          <div className="grid md:grid-cols-2 gap-12 p-8 md:p-12 items-center">
-            <div className="h-[400px] bg-slate-200 rounded-lg flex items-center justify-center border-2 border-slate-300 overflow-hidden relative premium-anim-left">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 p-6 md:p-10 items-stretch flex-grow">
+            <div className="relative h-full min-h-[350px] md:min-h-[400px] bg-slate-200 rounded-lg overflow-hidden border-2 border-slate-300 premium-anim-left">
               <Image src="/images/cashew.png" alt="Premium Roasted Cashews" fill className="object-cover rounded-lg" sizes="(max-width: 768px) 100vw, 50vw" />
             </div>
-            <div className="premium-anim-right">
-              <h3 className="text-3xl font-heading font-bold text-forest mb-5">Premium Roasted Cashews</h3>
-              <div className="mb-8 p-5 bg-white rounded-xl shadow-md border border-slate-100 border-l-4 border-l-gold">
+            <div className="premium-anim-right flex flex-col justify-center">
+              <h3 className="text-3xl font-heading font-bold text-forest mb-4">Premium Roasted Cashews</h3>
+              <div className="mb-6 p-4 md:p-5 bg-white rounded-xl shadow-md border border-slate-100 border-l-4 border-l-gold">
                 <p className="text-slate-700 text-[15px] font-medium leading-relaxed">{t("cashew_desc")}</p>
                 {isVi && <p className="text-[13px] text-slate-400 mt-2">{enMessages.ProductTabs.cashew_desc}</p>}
               </div>
@@ -494,13 +491,13 @@ export default function ProductTabs() {
         )}
 
         {activeTab === "ceramics" && (
-          <div className="grid md:grid-cols-2 gap-12 p-8 md:p-12 items-center">
-            <div className="h-[400px] bg-slate-200 rounded-lg flex items-center justify-center border-2 border-slate-300 overflow-hidden relative premium-anim-left">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 p-6 md:p-10 items-stretch flex-grow">
+            <div className="relative h-full min-h-[350px] md:min-h-[400px] bg-slate-200 rounded-lg overflow-hidden border-2 border-slate-300 premium-anim-left">
               <Image src="/images/ceramics.png" alt="Handmade Ceramics & Handicrafts" fill className="object-cover rounded-lg" sizes="(max-width: 768px) 100vw, 50vw" />
             </div>
-            <div className="premium-anim-right">
-              <h3 className="text-3xl font-heading font-bold text-forest mb-5">Handmade Ceramics & Art</h3>
-              <div className="mb-8 p-5 bg-white rounded-xl shadow-md border border-slate-100 border-l-4 border-l-gold">
+            <div className="premium-anim-right flex flex-col justify-center">
+              <h3 className="text-3xl font-heading font-bold text-forest mb-4">Handmade Ceramics & Art</h3>
+              <div className="mb-6 p-4 md:p-5 bg-white rounded-xl shadow-md border border-slate-100 border-l-4 border-l-gold">
                 <p className="text-slate-700 text-[15px] font-medium leading-relaxed">{t("ceramics_desc")}</p>
                 {isVi && <p className="text-[13px] text-slate-400 mt-2">{enMessages.ProductTabs.ceramics_desc}</p>}
               </div>
