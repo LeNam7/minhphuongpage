@@ -94,6 +94,7 @@ export default function ProductTabs() {
   const [activeTab, setActiveTab] = useState("seafood");
   const [isProductListOpen, setIsProductListOpen] = useState(false);
   const [marqueeProducts, setMarqueeProducts] = useState<typeof products>([]);
+  const [isPaused, setIsPaused] = useState(false);
   const tabsContainerRef = useRef<HTMLDivElement>(null);
 
   const tabs = [
@@ -114,6 +115,8 @@ export default function ProductTabs() {
 
   // Auto-play Carousel Effect
   useEffect(() => {
+    if (isPaused) return;
+
     const interval = setInterval(() => {
       setActiveTab((current) => {
         const currentIndex = tabs.findIndex((tab) => tab.id === current);
@@ -123,7 +126,7 @@ export default function ProductTabs() {
     }, 6000); // Transitions every 6 seconds
 
     return () => clearInterval(interval);
-  }, [activeTab]);
+  }, [activeTab, isPaused]);
 
   // Smooth scroll active tab button to the left side of the container on small screens
   useEffect(() => {
@@ -159,7 +162,11 @@ export default function ProductTabs() {
   }, [activeTab]);
 
   return (
-    <div className="w-full mt-12">
+    <div 
+      className="w-full mt-12"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
       {/* Wrapper to center the tabs container if it fits, or align to start if it overflows */}
       <div className="w-full flex justify-start lg:justify-center">
         <div 
@@ -201,9 +208,10 @@ export default function ProductTabs() {
         <div 
           className="absolute top-0 left-0 h-1 bg-gold/85 z-20 transition-all duration-100"
           style={{
-            animation: 'tabProgress 6000ms linear forwards'
+            animation: isPaused ? 'none' : 'tabProgress 6000ms linear forwards',
+            width: isPaused ? '0%' : undefined
           }}
-          key={activeTab} // Resets animation when tab changes
+          key={`${activeTab}-${isPaused}`} // Resets animation when tab changes or pauses
         />
 
         <style dangerouslySetInnerHTML={{__html: `
