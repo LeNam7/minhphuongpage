@@ -135,7 +135,20 @@
     "email": "Email:",
     "org": "Organization:",
     "org_val": "MINH PHUONG PRODUCTION, IMPORT-EXPORT AND TRADING SERVICES CO., LTD",
-    "tax": "Tax ID:"
+    "tax": "Tax ID:",
+    "fullName": "Full Name *",
+    "companyName": "Company Name *",
+    "businessEmail": "Business Email *",
+    "phoneNumber": "Phone Number",
+    "category": "Interested Category",
+    "selectCategory": "Select a product category...",
+    "catSeafood": "Premium Frozen Seafood",
+    "catFruit": "Fresh / Frozen Fruits",
+    "catCoffee": "Golden Robusta Coffee",
+    "catOthers": "General Partnership / Others",
+    "message": "Your Message / RFQ *",
+    "messagePlaceholder": "Please specify quantity, destination port, or any specific requirements...",
+    "submitBtn": "Send Inquiry to Export Team"
   },
   "Stats": {
     "title": "Scale & Capacity at a Glance",

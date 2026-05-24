@@ -312,44 +312,44 @@ export default function Home() {
               <form className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-semibold text-slate-700 mb-2">Full Name *</label>
+                    <label className="block text-sm font-semibold text-slate-700 mb-2">{tContact("fullName")}</label>
                     <input type="text" className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-forest focus:ring-2 focus:ring-forest/20 outline-none transition-all" placeholder="John Doe" />
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-slate-700 mb-2">Company Name *</label>
+                    <label className="block text-sm font-semibold text-slate-700 mb-2">{tContact("companyName")}</label>
                     <input type="text" className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-forest focus:ring-2 focus:ring-forest/20 outline-none transition-all" placeholder="XYZ Corporation" />
                   </div>
                 </div>
                 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-semibold text-slate-700 mb-2">Business Email *</label>
+                    <label className="block text-sm font-semibold text-slate-700 mb-2">{tContact("businessEmail")}</label>
                     <input type="email" className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-forest focus:ring-2 focus:ring-forest/20 outline-none transition-all" placeholder="john@company.com" />
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-slate-700 mb-2">Phone Number</label>
+                    <label className="block text-sm font-semibold text-slate-700 mb-2">{tContact("phoneNumber")}</label>
                     <input type="text" className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-forest focus:ring-2 focus:ring-forest/20 outline-none transition-all" placeholder="+1 234 567 890" />
                   </div>
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">Interested Category</label>
+                  <label className="block text-sm font-semibold text-slate-700 mb-2">{tContact("category")}</label>
                   <select className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-forest focus:ring-2 focus:ring-forest/20 outline-none transition-all bg-white">
-                    <option>Select a product category...</option>
-                    <option>Premium Frozen Seafood</option>
-                    <option>Fresh / Frozen Fruits</option>
-                    <option>Golden Robusta Coffee</option>
-                    <option>General Partnership / Others</option>
+                    <option>{tContact("selectCategory")}</option>
+                    <option>{tContact("catSeafood")}</option>
+                    <option>{tContact("catFruit")}</option>
+                    <option>{tContact("catCoffee")}</option>
+                    <option>{tContact("catOthers")}</option>
                   </select>
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">Your Message / RFQ *</label>
-                  <textarea rows={4} className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-forest focus:ring-2 focus:ring-forest/20 outline-none transition-all" placeholder="Please specify quantity, destination port, or any specific requirements..."></textarea>
+                  <label className="block text-sm font-semibold text-slate-700 mb-2">{tContact("message")}</label>
+                  <textarea rows={4} className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-forest focus:ring-2 focus:ring-forest/20 outline-none transition-all" placeholder={tContact("messagePlaceholder")}></textarea>
                 </div>
                 
                 <button type="button" className="w-full bg-forest text-white font-heading font-bold text-lg py-4 rounded-lg hover:bg-forest-dark transition-colors shadow-lg shadow-forest/30">
-                  Send Inquiry to Export Team
+                  {tContact("submitBtn")}
                 </button>
               </form>
             </div>

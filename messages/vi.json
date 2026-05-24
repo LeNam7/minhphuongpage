@@ -135,7 +135,20 @@
     "email": "Email:",
     "org": "Tổ chức:",
     "org_val": "CÔNG TY TNHH SẢN XUẤT, XNK VÀ TMDV MINH PHƯƠNG",
-    "tax": "Mã Số Thuế:"
+    "tax": "Mã Số Thuế:",
+    "fullName": "Họ và Tên *",
+    "companyName": "Tên Công Ty *",
+    "businessEmail": "Email Doanh Nghiệp *",
+    "phoneNumber": "Số Điện Thoại",
+    "category": "Danh Mục Quan Tâm",
+    "selectCategory": "Chọn một danh mục sản phẩm...",
+    "catSeafood": "Thủy sản đông lạnh cao cấp",
+    "catFruit": "Trái cây tươi / Cấp đông",
+    "catCoffee": "Cà phê Robusta hảo hạng",
+    "catOthers": "Hợp tác chung / Khác",
+    "message": "Nội dung tin nhắn / Yêu cầu báo giá *",
+    "messagePlaceholder": "Vui lòng cho biết số lượng, cảng đến dự kiến, hoặc các yêu cầu cụ thể khác...",
+    "submitBtn": "Gửi Yêu Cầu Cho Đội Ngũ Xuất Khẩu"
   },
   "Stats": {
     "title": "Quy Mô & Năng Lực",
