@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://minhphuong.com.vn/sitemap.xml',
+    sitemap: 'https://minhphuongltd.com/sitemap.xml',
   }
 }
