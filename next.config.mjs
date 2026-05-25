@@ -7,11 +7,11 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: '/Minh_Phuong_Company_Profile.pdf',
+        source: '/Ho_So_Cong_Ty_Minh_Phuong.pdf',
         headers: [
           {
             key: 'Content-Disposition',
-            value: 'attachment; filename="HoSoNangLuc_MinhPhuong.pdf"',
+            value: 'attachment; filename="Ho_So_Cong_Ty_Minh_Phuong.pdf"',
           },
         ],
       },

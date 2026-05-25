@@ -188,8 +188,8 @@ export default function HeroSection() {
               {t("contactBtn")}
             </a>
             <a
-              href="/Minh_Phuong_Company_Profile.pdf"
-              download="HoSoNangLuc_MinhPhuong.pdf"
+              href="/Ho_So_Cong_Ty_Minh_Phuong.pdf"
+              download="Ho_So_Cong_Ty_Minh_Phuong.pdf"
               className="text-center bg-transparent border-2 border-white text-white font-heading font-semibold px-8 py-3.5 rounded hover:bg-white hover:text-forest transition-all"
             >
               {t("downloadBtn")}
