@@ -21,14 +21,17 @@ export async function generateMetadata({
   return {
     title: t('title'),
     description: t('description'),
+    verification: {
+      google: 'IEhFh0NTEZdLJXP_uENsqfcIAM33ZclVfL_40GLdyFI',
+    },
     openGraph: {
       title: t('title'),
       description: t('description'),
-      url: `https://minhphuong.com.vn/${locale}`,
+      url: `https://minhphuongltd.com/${locale}`,
       siteName: 'Minh Phuong Co., Ltd',
       images: [
         {
-          url: 'https://minhphuong.com.vn/images/logo_transparent.png',
+          url: 'https://minhphuongltd.com/images/logo_transparent.png',
           width: 800,
           height: 600,
         },
@@ -40,13 +43,13 @@ export async function generateMetadata({
       card: 'summary_large_image',
       title: t('title'),
       description: t('description'),
-      images: ['https://minhphuong.com.vn/images/logo_transparent.png'],
+      images: ['https://minhphuongltd.com/images/logo_transparent.png'],
     },
     alternates: {
-      canonical: `https://minhphuong.com.vn/${locale}`,
+      canonical: `https://minhphuongltd.com/${locale}`,
       languages: {
-        'vi-VN': 'https://minhphuong.com.vn/vi',
-        'en-US': 'https://minhphuong.com.vn/en',
+        'vi-VN': 'https://minhphuongltd.com/vi',
+        'en-US': 'https://minhphuongltd.com/en',
       },
     },
   };
@@ -72,10 +75,10 @@ export default async function LocaleLayout({
     "@type": "Organization",
     "name": "CÔNG TY TNHH SẢN XUẤT, XNK VÀ TMDV MINH PHƯƠNG",
     "alternateName": "Minh Phuong Co., Ltd",
-    "url": `https://minhphuong.com.vn/${locale}`,
-    "logo": "https://minhphuong.com.vn/images/logo_transparent.png",
+    "url": `https://minhphuongltd.com/${locale}`,
+    "logo": "https://minhphuongltd.com/images/logo_transparent.png",
     "sameAs": [
-      "https://minhphuong.com.vn"
+      "https://minhphuongltd.com"
     ],
     "contactPoint": {
       "@type": "ContactPoint",
