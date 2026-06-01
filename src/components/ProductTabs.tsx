@@ -87,11 +87,91 @@ const TAB_ICONS: Record<string, (isActive: boolean) => React.ReactNode> = {
   )
 };
 
+const TAB_DATA: Record<string, {
+  title: string;
+  descKey: string;
+  rawImage: string;
+  packagedImage: string;
+  subItems: {
+    id: string;
+    labelKey: string;
+    valKey: string;
+  }[];
+}> = {
+  seafood: {
+    title: "Seafood Mastery",
+    descKey: "seafood_desc",
+    rawImage: "/images/shrimp.png",
+    packagedImage: "/images/seafood_export.png",
+    subItems: [
+      { id: "seafood_1", labelKey: "seafood_1_label", valKey: "seafood_1_val" },
+      { id: "seafood_2", labelKey: "seafood_2_label", valKey: "seafood_2_val" },
+      { id: "seafood_3", labelKey: "seafood_3_label", valKey: "seafood_3_val" },
+      { id: "seafood_4", labelKey: "seafood_4_label", valKey: "seafood_4_val" }
+    ]
+  },
+  frozen: {
+    title: "BQF / IQF Frozen Fruits",
+    descKey: "frozen_desc",
+    rawImage: "/images/frozen_fruits.png",
+    packagedImage: "/images/frozen_export.png",
+    subItems: [
+      { id: "frozen_1", labelKey: "frozen_1_label", valKey: "frozen_1_val" },
+      { id: "frozen_2", labelKey: "frozen_2_label", valKey: "frozen_2_val" },
+      { id: "frozen_3", labelKey: "frozen_3_label", valKey: "frozen_3_val" }
+    ]
+  },
+  fresh: {
+    title: "Fresh & Dried Selections",
+    descKey: "fresh_desc",
+    rawImage: "/images/fresh_fruits.png",
+    packagedImage: "/images/fresh_export.png",
+    subItems: [
+      { id: "fresh_1", labelKey: "fresh_1_label", valKey: "fresh_1_val" },
+      { id: "fresh_2", labelKey: "fresh_2_label", valKey: "fresh_2_val" }
+    ]
+  },
+  coffee: {
+    title: "Golden Robusta Export",
+    descKey: "coffee_desc",
+    rawImage: "/images/green_coffee.png",
+    packagedImage: "/images/coffee_export.png",
+    subItems: [
+      { id: "coffee_1", labelKey: "coffee_1_label", valKey: "coffee_1_val" },
+      { id: "coffee_2", labelKey: "coffee_2_label", valKey: "coffee_2_val" },
+      { id: "coffee_3", labelKey: "coffee_3_label", valKey: "coffee_3_val" }
+    ]
+  },
+  cashew: {
+    title: "Premium Roasted Cashews",
+    descKey: "cashew_desc",
+    rawImage: "/images/cashew.png",
+    packagedImage: "/images/cashew_export.png",
+    subItems: [
+      { id: "cashew_1", labelKey: "cashew_1_label", valKey: "cashew_1_val" },
+      { id: "cashew_2", labelKey: "cashew_2_label", valKey: "cashew_2_val" },
+      { id: "cashew_3", labelKey: "cashew_3_label", valKey: "cashew_3_val" }
+    ]
+  },
+  ceramics: {
+    title: "Handmade Ceramics & Art",
+    descKey: "ceramics_desc",
+    rawImage: "/images/ceramics.png",
+    packagedImage: "/images/ceramics_decor.png",
+    subItems: [
+      { id: "ceramics_1", labelKey: "ceramics_1_label", valKey: "ceramics_1_val" },
+      { id: "ceramics_2", labelKey: "ceramics_2_label", valKey: "ceramics_2_val" },
+      { id: "ceramics_3", labelKey: "ceramics_3_label", valKey: "ceramics_3_val" }
+    ]
+  }
+};;
+
 export default function ProductTabs() {
   const t = useTranslations("ProductTabs");
   const locale = useLocale();
   const isVi = locale === 'vi';
   const [activeTab, setActiveTab] = useState("seafood");
+  const [lightboxImage, setLightboxImage] = useState<{ src: string; alt: string } | null>(null);
   const [isProductListOpen, setIsProductListOpen] = useState(false);
   const [marqueeProducts, setMarqueeProducts] = useState<typeof products>([]);
   const [isPaused, setIsPaused] = useState(false);
@@ -280,302 +360,147 @@ export default function ProductTabs() {
           }
         `}} />
 
-        {activeTab === "seafood" && (
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 p-6 md:p-10 items-stretch flex-grow">
-            <div className="relative h-full min-h-[350px] md:min-h-[400px] bg-slate-200 rounded-lg overflow-hidden border-2 border-slate-300 premium-anim-left">
-              <Image src="/images/shrimp.png" alt="Premium Frozen Shrimp" fill className="object-cover rounded-lg" sizes="(max-width: 768px) 100vw, 50vw" />
-            </div>
-            <div className="premium-anim-right flex flex-col justify-center">
-              <h3 className="text-3xl font-heading font-bold text-forest mb-4">Seafood Mastery</h3>
-              <div className="mb-6 p-4 md:p-5 bg-white rounded-xl shadow-md border border-slate-100 border-l-4 border-l-gold">
-                <p className="text-slate-700 text-[15px] font-medium leading-relaxed">{t("seafood_desc")}</p>
-                {isVi && <p className="text-[13px] text-slate-400 mt-2">{enMessages.ProductTabs.seafood_desc}</p>}
-              </div>
-              <ul className="space-y-0 text-slate-600 ml-2">
-                <li className="relative pl-8 pb-6 border-l-2 border-slate-100 last:border-transparent last:pb-0 stagger-item-1">
-                  <span className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-gold shadow-[0_0_0_5px_white]"></span>
-                  <div className="text-slate-800 leading-snug">
-                    <strong className="text-forest font-bold">{t("seafood_1_label")}</strong> {t("seafood_1_val")}
-                  </div>
-                  {isVi && (
-                    <div className="text-[13px] text-slate-400 mt-1.5 leading-snug">
-                      <span className="font-medium text-slate-500">{enMessages.ProductTabs.seafood_1_label}</span> {enMessages.ProductTabs.seafood_1_val}
-                    </div>
-                  )}
-                </li>
-                <li className="relative pl-8 pb-6 border-l-2 border-slate-100 last:border-transparent last:pb-0 stagger-item-2">
-                  <span className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-gold shadow-[0_0_0_5px_white]"></span>
-                  <div className="text-slate-800 leading-snug">
-                    <strong className="text-forest font-bold">{t("seafood_2_label")}</strong> {t("seafood_2_val")}
-                  </div>
-                  {isVi && (
-                    <div className="text-[13px] text-slate-400 mt-1.5 leading-snug">
-                      <span className="font-medium text-slate-500">{enMessages.ProductTabs.seafood_2_label}</span> {enMessages.ProductTabs.seafood_2_val}
-                    </div>
-                  )}
-                </li>
-                <li className="relative pl-8 pb-6 border-l-2 border-slate-100 last:border-transparent last:pb-0 stagger-item-3">
-                  <span className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-gold shadow-[0_0_0_5px_white]"></span>
-                  <div className="text-slate-800 leading-snug">
-                    <strong className="text-forest font-bold">{t("seafood_3_label")}</strong> {t("seafood_3_val")}
-                  </div>
-                  {isVi && (
-                    <div className="text-[13px] text-slate-400 mt-1.5 leading-snug">
-                      <span className="font-medium text-slate-500">{enMessages.ProductTabs.seafood_3_label}</span> {enMessages.ProductTabs.seafood_3_val}
-                    </div>
-                  )}
-                </li>
-                <li className="relative pl-8 pb-6 border-l-2 border-slate-100 last:border-transparent last:pb-0 stagger-item-4">
-                  <span className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-gold shadow-[0_0_0_5px_white]"></span>
-                  <div className="text-slate-800 leading-snug">
-                    <strong className="text-forest font-bold">{t("seafood_4_label")}</strong> {t("seafood_4_val")}
-                  </div>
-                  {isVi && (
-                    <div className="text-[13px] text-slate-400 mt-1.5 leading-snug">
-                      <span className="font-medium text-slate-500">{enMessages.ProductTabs.seafood_4_label}</span> {enMessages.ProductTabs.seafood_4_val}
-                    </div>
-                  )}
-                </li>
-              </ul>
-            </div>
-          </div>
-        )}
-        
-        {activeTab === "frozen" && (
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 p-6 md:p-10 items-stretch flex-grow">
-            <div className="relative h-full min-h-[350px] md:min-h-[400px] bg-slate-200 rounded-lg overflow-hidden border-2 border-slate-300 premium-anim-left">
-              <Image src="/images/frozen_fruits.png" alt="IQF Frozen Tropical Fruits" fill className="object-cover rounded-lg" sizes="(max-width: 768px) 100vw, 50vw" />
-            </div>
-            <div className="premium-anim-right flex flex-col justify-center">
-              <h3 className="text-3xl font-heading font-bold text-forest mb-4">BQF / IQF Frozen Fruits</h3>
-              <div className="mb-6 p-4 md:p-5 bg-white rounded-xl shadow-md border border-slate-100 border-l-4 border-l-gold">
-                <p className="text-slate-700 text-[15px] font-medium leading-relaxed">{t("frozen_desc")}</p>
-                {isVi && <p className="text-[13px] text-slate-400 mt-2">{enMessages.ProductTabs.frozen_desc}</p>}
-              </div>
-              <ul className="space-y-0 text-slate-600 ml-2">
-                <li className="relative pl-8 pb-6 border-l-2 border-slate-100 last:border-transparent last:pb-0 stagger-item-1">
-                  <span className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-gold shadow-[0_0_0_5px_white]"></span>
-                  <div className="text-slate-800 leading-snug">
-                    <strong className="text-forest font-bold">{t("frozen_1_label")}</strong> {t("frozen_1_val")}
-                  </div>
-                  {isVi && (
-                    <div className="text-[13px] text-slate-400 mt-1.5 leading-snug">
-                      <span className="font-medium text-slate-500">{enMessages.ProductTabs.frozen_1_label}</span> {enMessages.ProductTabs.frozen_1_val}
-                    </div>
-                  )}
-                </li>
-                <li className="relative pl-8 pb-6 border-l-2 border-slate-100 last:border-transparent last:pb-0 stagger-item-2">
-                  <span className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-gold shadow-[0_0_0_5px_white]"></span>
-                  <div className="text-slate-800 leading-snug">
-                    <strong className="text-forest font-bold">{t("frozen_2_label")}</strong> {t("frozen_2_val")}
-                  </div>
-                  {isVi && (
-                    <div className="text-[13px] text-slate-400 mt-1.5 leading-snug">
-                      <span className="font-medium text-slate-500">{enMessages.ProductTabs.frozen_2_label}</span> {enMessages.ProductTabs.frozen_2_val}
-                    </div>
-                  )}
-                </li>
-                <li className="relative pl-8 pb-6 border-l-2 border-slate-100 last:border-transparent last:pb-0 stagger-item-3">
-                  <span className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-gold shadow-[0_0_0_5px_white]"></span>
-                  <div className="text-slate-800 leading-snug">
-                    <strong className="text-forest font-bold">{t("frozen_3_label")}</strong> {t("frozen_3_val")}
-                  </div>
-                  {isVi && (
-                    <div className="text-[13px] text-slate-400 mt-1.5 leading-snug">
-                      <span className="font-medium text-slate-500">{enMessages.ProductTabs.frozen_3_label}</span> {enMessages.ProductTabs.frozen_3_val}
-                    </div>
-                  )}
-                </li>
-              </ul>
-            </div>
-          </div>
-        )}
+        {(() => {
+          const currentTabData = TAB_DATA[activeTab];
+          if (!currentTabData) return null;
+          const productTabsEn = enMessages.ProductTabs as Record<string, string>;
 
-        {activeTab === "fresh" && (
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 p-6 md:p-10 items-stretch flex-grow">
-            <div className="relative h-full min-h-[350px] md:min-h-[400px] bg-slate-200 rounded-lg overflow-hidden border-2 border-slate-300 premium-anim-left">
-              <Image src="/images/fresh_fruits.png" alt="Fresh Orchards Produce" fill className="object-cover rounded-lg" sizes="(max-width: 768px) 100vw, 50vw" />
-            </div>
-            <div className="premium-anim-right flex flex-col justify-center">
-              <h3 className="text-3xl font-heading font-bold text-forest mb-4">Fresh & Dried Selections</h3>
-              <div className="mb-6 p-4 md:p-5 bg-white rounded-xl shadow-md border border-slate-100 border-l-4 border-l-gold">
-                <p className="text-slate-700 text-[15px] font-medium leading-relaxed">{t("fresh_desc")}</p>
-                {isVi && <p className="text-[13px] text-slate-400 mt-2">{enMessages.ProductTabs.fresh_desc}</p>}
-              </div>
-              <ul className="space-y-0 text-slate-600 ml-2">
-                <li className="relative pl-8 pb-6 border-l-2 border-slate-100 last:border-transparent last:pb-0 stagger-item-1">
-                  <span className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-gold shadow-[0_0_0_5px_white]"></span>
-                  <div className="text-slate-800 leading-snug">
-                    <strong className="text-forest font-bold">{t("fresh_1_label")}</strong> {t("fresh_1_val")}
+          return (
+            <div className="grid md:grid-cols-2 gap-8 md:gap-10 lg:gap-12 p-6 md:p-10 lg:p-12 items-stretch flex-grow w-full h-auto">
+              {/* Left Column: Symmetrical Widescreen Dual-Image Showcase (Vertical Stack) */}
+              <div className="premium-anim-left bg-white p-3 md:p-4 rounded-[32px] border border-slate-200/70 shadow-[0_20px_50px_rgba(0,0,0,0.04)] flex flex-col justify-between gap-4 h-full min-h-[380px] md:min-h-[440px] lg:min-h-[480px] w-full">
+                {/* Image 1: Raw / Pre-processed */}
+                <div 
+                  onClick={() => setLightboxImage({ src: currentTabData.rawImage, alt: isVi ? "Nguyên Liệu Sơ Chế" : "Raw Materials" })}
+                  className="relative w-full h-[180px] md:h-1/2 rounded-2xl md:rounded-[20px] overflow-hidden border border-slate-200/50 shadow-sm group transition-all duration-500 hover:!opacity-100 hover:!scale-[1.02] hover:!blur-none hover:shadow-xl hover:border-forest/30 group-hover/outer:opacity-75 group-hover/outer:scale-[0.98] group-hover/outer:blur-[0.5px] cursor-zoom-in flex-grow"
+                >
+                  <Image
+                    src={currentTabData.rawImage}
+                    alt={isVi ? "Nguyên liệu sơ chế" : "Raw / Pre-processed"}
+                    fill
+                    className="object-cover transition-transform duration-[1000ms] group-hover:scale-108 select-none"
+                    sizes="(max-width: 768px) 100vw, 40vw"
+                    priority
+                  />
+                  {/* Bottom Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent pointer-events-none" />
+                  
+                  {/* Premium Forest Leaf Glassmorphic Badge */}
+                  <div className="absolute bottom-4 left-4 right-4 bg-forest/85 backdrop-blur-md border border-white/20 rounded-2xl py-3 px-2 flex items-center justify-center gap-2 text-white shadow-lg transition-all duration-500 group-hover:scale-102 group-hover:bg-forest">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-gold shrink-0"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 3.5 1 9.8a7 7 0 0 1-9 8.2z"/><path d="M9 22v-4h-4"/></svg>
+                    <span className="font-heading font-extrabold text-[11px] md:text-[13px] tracking-wider uppercase">{isVi ? "Nguyên Liệu Sơ Chế" : "Raw Materials"}</span>
                   </div>
-                  {isVi && (
-                    <div className="text-[13px] text-slate-400 mt-1.5 leading-snug">
-                      <span className="font-medium text-slate-500">{enMessages.ProductTabs.fresh_1_label}</span> {enMessages.ProductTabs.fresh_1_val}
-                    </div>
-                  )}
-                </li>
-                <li className="relative pl-8 pb-6 border-l-2 border-slate-100 last:border-transparent last:pb-0 stagger-item-2">
-                  <span className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-gold shadow-[0_0_0_5px_white]"></span>
-                  <div className="text-slate-800 leading-snug">
-                    <strong className="text-forest font-bold">{t("fresh_2_label")}</strong> {t("fresh_2_val")}
-                  </div>
-                  {isVi && (
-                    <div className="text-[13px] text-slate-400 mt-1.5 leading-snug">
-                      <span className="font-medium text-slate-500">{enMessages.ProductTabs.fresh_2_label}</span> {enMessages.ProductTabs.fresh_2_val}
-                    </div>
-                  )}
-                </li>
-              </ul>
-            </div>
-          </div>
-        )}
+                </div>
 
-        {activeTab === "coffee" && (
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 p-6 md:p-10 items-stretch flex-grow">
-            <div className="relative h-full min-h-[350px] md:min-h-[400px] bg-slate-200 rounded-lg overflow-hidden border-2 border-slate-300 premium-anim-left">
-              <Image src="/images/coffee.png" alt="Golden Robusta Coffee Beans" fill className="object-cover rounded-lg" sizes="(max-width: 768px) 100vw, 50vw" />
-            </div>
-            <div className="premium-anim-right flex flex-col justify-center">
-              <h3 className="text-3xl font-heading font-bold text-forest mb-4">Golden Robusta Export</h3>
-              <div className="mb-6 p-4 md:p-5 bg-white rounded-xl shadow-md border border-slate-100 border-l-4 border-l-gold">
-                <p className="text-slate-700 text-[15px] font-medium leading-relaxed">{t("coffee_desc")}</p>
-                {isVi && <p className="text-[13px] text-slate-400 mt-2">{enMessages.ProductTabs.coffee_desc}</p>}
+                {/* Image 2: Export Packaged */}
+                <div 
+                  onClick={() => setLightboxImage({ src: currentTabData.packagedImage, alt: isVi ? "Đóng Gói Thành Phẩm" : "Export Packaged" })}
+                  className="relative w-full h-[180px] md:h-1/2 rounded-2xl md:rounded-[20px] overflow-hidden border border-slate-200/50 shadow-sm group transition-all duration-500 hover:!opacity-100 hover:!scale-[1.02] hover:!blur-none hover:shadow-xl hover:border-gold/40 group-hover/outer:opacity-75 group-hover/outer:scale-[0.98] group-hover/outer:blur-[0.5px] cursor-zoom-in flex-grow"
+                >
+                  <Image
+                    src={currentTabData.packagedImage}
+                    alt={isVi ? "Đóng gói thành phẩm" : "Export Packaged"}
+                    fill
+                    className="object-cover transition-transform duration-[1000ms] group-hover:scale-108 select-none"
+                    sizes="(max-width: 768px) 100vw, 40vw"
+                  />
+                  {/* Bottom Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent pointer-events-none" />
+                  
+                  {/* Premium Gold Shipment Glassmorphic Badge */}
+                  <div className="absolute bottom-4 left-4 right-4 bg-gold/90 backdrop-blur-md border border-white/25 rounded-2xl py-3 px-2 flex items-center justify-center gap-2 text-white shadow-lg transition-all duration-500 group-hover:scale-102 group-hover:bg-gold">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-white shrink-0"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                    <span className="font-heading font-extrabold text-[11px] md:text-[13px] tracking-wider uppercase text-white">{isVi ? "Đóng Gói Thành Phẩm" : "Export Packaged"}</span>
+                  </div>
+                </div>
               </div>
-              <ul className="space-y-0 text-slate-600 ml-2">
-                <li className="relative pl-8 pb-6 border-l-2 border-slate-100 last:border-transparent last:pb-0 stagger-item-1">
-                  <span className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-gold shadow-[0_0_0_5px_white]"></span>
-                  <div className="text-slate-800 leading-snug">
-                    <strong className="text-forest font-bold">{t("coffee_1_label")}</strong> {t("coffee_1_val")}
-                  </div>
-                  {isVi && (
-                    <div className="text-[13px] text-slate-400 mt-1.5 leading-snug">
-                      <span className="font-medium text-slate-500">{enMessages.ProductTabs.coffee_1_label}</span> {enMessages.ProductTabs.coffee_1_val}
-                    </div>
-                  )}
-                </li>
-                <li className="relative pl-8 pb-6 border-l-2 border-slate-100 last:border-transparent last:pb-0 stagger-item-2">
-                  <span className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-gold shadow-[0_0_0_5px_white]"></span>
-                  <div className="text-slate-800 leading-snug">
-                    <strong className="text-forest font-bold">{t("coffee_2_label")}</strong> {t("coffee_2_val")}
-                  </div>
-                  {isVi && (
-                    <div className="text-[13px] text-slate-400 mt-1.5 leading-snug">
-                      <span className="font-medium text-slate-500">{enMessages.ProductTabs.coffee_2_label}</span> {enMessages.ProductTabs.coffee_2_val}
-                    </div>
-                  )}
-                </li>
-                <li className="relative pl-8 pb-6 border-l-2 border-slate-100 last:border-transparent last:pb-0 stagger-item-3">
-                  <span className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-gold shadow-[0_0_0_5px_white]"></span>
-                  <div className="text-slate-800 leading-snug">
-                    <strong className="text-forest font-bold">{t("coffee_3_label")}</strong> {t("coffee_3_val")}
-                  </div>
-                  {isVi && (
-                    <div className="text-[13px] text-slate-400 mt-1.5 leading-snug">
-                      <span className="font-medium text-slate-500">{enMessages.ProductTabs.coffee_3_label}</span> {enMessages.ProductTabs.coffee_3_val}
-                    </div>
-                  )}
-                </li>
-              </ul>
-            </div>
-          </div>
-        )}
 
-        {activeTab === "cashew" && (
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 p-6 md:p-10 items-stretch flex-grow">
-            <div className="relative h-full min-h-[350px] md:min-h-[400px] bg-slate-200 rounded-lg overflow-hidden border-2 border-slate-300 premium-anim-left">
-              <Image src="/images/cashew.png" alt="Premium Roasted Cashews" fill className="object-cover rounded-lg" sizes="(max-width: 768px) 100vw, 50vw" />
-            </div>
-            <div className="premium-anim-right flex flex-col justify-center">
-              <h3 className="text-3xl font-heading font-bold text-forest mb-4">Premium Roasted Cashews</h3>
-              <div className="mb-6 p-4 md:p-5 bg-white rounded-xl shadow-md border border-slate-100 border-l-4 border-l-gold">
-                <p className="text-slate-700 text-[15px] font-medium leading-relaxed">{t("cashew_desc")}</p>
-                {isVi && <p className="text-[13px] text-slate-400 mt-2">{enMessages.ProductTabs.cashew_desc}</p>}
-              </div>
-              <ul className="space-y-0 text-slate-600 ml-2">
-                <li className="relative pl-8 pb-6 border-l-2 border-slate-100 last:border-transparent last:pb-0 stagger-item-1">
-                  <span className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-gold shadow-[0_0_0_5px_white]"></span>
-                  <div className="text-slate-800 leading-snug">
-                    <strong className="text-forest font-bold">{t("cashew_1_label")}</strong> {t("cashew_1_val")}
-                  </div>
+              {/* Right Column: Symmetrical dynamic-height spec card wrapper */}
+              <div className="premium-anim-right bg-white p-6 md:p-8 rounded-[32px] border border-slate-200/70 shadow-[0_20px_50px_rgba(0,0,0,0.04)] flex flex-col justify-center h-full min-h-[380px] md:min-h-[440px] lg:min-h-[480px] w-full">
+                <h3 className="text-3xl lg:text-4xl font-heading font-extrabold text-forest mb-2 tracking-tight">
+                  {currentTabData.title}
+                </h3>
+                <div className="mb-6 p-4 bg-slate-50/80 rounded-2xl border border-slate-100 border-l-4 border-l-gold">
+                  <p className="text-slate-700 text-[15px] font-semibold leading-relaxed">
+                    {t(currentTabData.descKey)}
+                  </p>
                   {isVi && (
-                    <div className="text-[13px] text-slate-400 mt-1.5 leading-snug">
-                      <span className="font-medium text-slate-500">{enMessages.ProductTabs.cashew_1_label}</span> {enMessages.ProductTabs.cashew_1_val}
-                    </div>
+                    <p className="text-[13px] text-slate-400 mt-1.5 italic">
+                      {productTabsEn[currentTabData.descKey]}
+                    </p>
                   )}
-                </li>
-                <li className="relative pl-8 pb-6 border-l-2 border-slate-100 last:border-transparent last:pb-0 stagger-item-2">
-                  <span className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-gold shadow-[0_0_0_5px_white]"></span>
-                  <div className="text-slate-800 leading-snug">
-                    <strong className="text-forest font-bold">{t("cashew_2_label")}</strong> {t("cashew_2_val")}
-                  </div>
-                  {isVi && (
-                    <div className="text-[13px] text-slate-400 mt-1.5 leading-snug">
-                      <span className="font-medium text-slate-500">{enMessages.ProductTabs.cashew_2_label}</span> {enMessages.ProductTabs.cashew_2_val}
-                    </div>
-                  )}
-                </li>
-                <li className="relative pl-8 pb-6 border-l-2 border-slate-100 last:border-transparent last:pb-0 stagger-item-3">
-                  <span className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-gold shadow-[0_0_0_5px_white]"></span>
-                  <div className="text-slate-800 leading-snug">
-                    <strong className="text-forest font-bold">{t("cashew_3_label")}</strong> {t("cashew_3_val")}
-                  </div>
-                  {isVi && (
-                    <div className="text-[13px] text-slate-400 mt-1.5 leading-snug">
-                      <span className="font-medium text-slate-500">{enMessages.ProductTabs.cashew_3_label}</span> {enMessages.ProductTabs.cashew_3_val}
-                    </div>
-                  )}
-                </li>
-              </ul>
-            </div>
-          </div>
-        )}
+                </div>
 
-        {activeTab === "ceramics" && (
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 p-6 md:p-10 items-stretch flex-grow">
-            <div className="relative h-full min-h-[350px] md:min-h-[400px] bg-slate-200 rounded-lg overflow-hidden border-2 border-slate-300 premium-anim-left">
-              <Image src="/images/ceramics.png" alt="Handmade Ceramics & Handicrafts" fill className="object-cover rounded-lg" sizes="(max-width: 768px) 100vw, 50vw" />
-            </div>
-            <div className="premium-anim-right flex flex-col justify-center">
-              <h3 className="text-3xl font-heading font-bold text-forest mb-4">Handmade Ceramics & Art</h3>
-              <div className="mb-6 p-4 md:p-5 bg-white rounded-xl shadow-md border border-slate-100 border-l-4 border-l-gold">
-                <p className="text-slate-700 text-[15px] font-medium leading-relaxed">{t("ceramics_desc")}</p>
-                {isVi && <p className="text-[13px] text-slate-400 mt-2">{enMessages.ProductTabs.ceramics_desc}</p>}
+                <ul className="space-y-0 text-slate-600 ml-2">
+                  {currentTabData.subItems.map((item, idx) => (
+                    <li 
+                      key={item.id} 
+                      className={`relative pl-8 pb-5 border-l-2 border-slate-200/80 last:border-transparent last:pb-0 hover:bg-slate-50/50 hover:shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:border-l-gold hover:rounded-r-2xl transition-all duration-300 px-4 py-2.5 -ml-4 stagger-item-${idx + 1}`}
+                    >
+                      {/* Decorative Gold pulsing concentric dot */}
+                      <span className="absolute -left-[9px] top-3.5 flex h-5 w-5 items-center justify-center">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold/25 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-white border-2 border-gold shadow-sm">
+                          <span className="h-1.5 w-1.5 rounded-full bg-forest"></span>
+                        </span>
+                      </span>
+                      <div className="text-slate-800 leading-relaxed text-[15px] md:text-[16px]">
+                        <strong className="text-forest font-extrabold">{t(item.labelKey)}</strong>{" "}
+                        <span className="font-semibold text-slate-700">{t(item.valKey)}</span>
+                      </div>
+                      {isVi && (
+                        <div className="text-[13px] text-slate-400 mt-1 leading-snug">
+                          <span className="font-semibold text-slate-500">
+                            {productTabsEn[item.labelKey]}
+                          </span>{" "}
+                          {productTabsEn[item.valKey]}
+                        </div>
+                      )}
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <ul className="space-y-0 text-slate-600 ml-2">
-                <li className="relative pl-8 pb-6 border-l-2 border-slate-100 last:border-transparent last:pb-0 stagger-item-1">
-                  <span className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-gold shadow-[0_0_0_5px_white]"></span>
-                  <div className="text-slate-800 leading-snug">
-                    <strong className="text-forest font-bold">{t("ceramics_1_label")}</strong> {t("ceramics_1_val")}
-                  </div>
-                  {isVi && (
-                    <div className="text-[13px] text-slate-400 mt-1.5 leading-snug">
-                      <span className="font-medium text-slate-500">{enMessages.ProductTabs.ceramics_1_label}</span> {enMessages.ProductTabs.ceramics_1_val}
-                    </div>
-                  )}
-                </li>
-                <li className="relative pl-8 pb-6 border-l-2 border-slate-100 last:border-transparent last:pb-0 stagger-item-2">
-                  <span className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-gold shadow-[0_0_0_5px_white]"></span>
-                  <div className="text-slate-800 leading-snug">
-                    <strong className="text-forest font-bold">{t("ceramics_2_label")}</strong> {t("ceramics_2_val")}
-                  </div>
-                  {isVi && (
-                    <div className="text-[13px] text-slate-400 mt-1.5 leading-snug">
-                      <span className="font-medium text-slate-500">{enMessages.ProductTabs.ceramics_2_label}</span> {enMessages.ProductTabs.ceramics_2_val}
-                    </div>
-                  )}
-                </li>
-                <li className="relative pl-8 pb-6 border-l-2 border-slate-100 last:border-transparent last:pb-0 stagger-item-3">
-                  <span className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-gold shadow-[0_0_0_5px_white]"></span>
-                  <div className="text-slate-800 leading-snug">
-                    <strong className="text-forest font-bold">{t("ceramics_3_label")}</strong> {t("ceramics_3_val")}
-                  </div>
-                  {isVi && (
-                    <div className="text-[13px] text-slate-400 mt-1.5 leading-snug">
-                      <span className="font-medium text-slate-500">{enMessages.ProductTabs.ceramics_3_label}</span> {enMessages.ProductTabs.ceramics_3_val}
-                    </div>
-                  )}
-                </li>
-              </ul>
+            </div>
+          );
+        })()}
+
+        {/* Lightbox Modal */}
+        {lightboxImage && (
+          <div 
+            className="fixed inset-0 bg-slate-950/90 backdrop-blur-md z-[9999] flex flex-col items-center justify-center p-4 cursor-zoom-out animate-fadeIn select-none"
+            onClick={() => setLightboxImage(null)}
+          >
+            {/* Visual backdrop style helper */}
+            <style dangerouslySetInnerHTML={{__html: `
+              @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+              }
+              @keyframes zoomIn {
+                from { transform: scale(0.95); opacity: 0; }
+                to { transform: scale(1); opacity: 1; }
+              }
+              .animate-fadeIn { animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) both; }
+              .animate-zoomIn { animation: zoomIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) both; }
+            `}} />
+
+            {/* High-fidelity full screen image container */}
+            <div className="relative w-full max-w-4xl h-[70vh] md:h-[80vh] flex items-center justify-center animate-zoomIn">
+              <Image
+                src={lightboxImage.src}
+                alt={lightboxImage.alt}
+                fill
+                className="object-contain rounded-2xl md:rounded-3xl"
+                sizes="90vw"
+                priority
+              />
+            </div>
+            
+            {/* Elegant glassmorphic title and instructions */}
+            <div className="mt-6 bg-white/10 backdrop-blur-md border border-white/20 px-6 py-3 rounded-2xl shadow-xl flex items-center gap-3 text-white max-w-md text-center">
+              <span className="font-heading font-extrabold text-sm md:text-base text-gold tracking-wide uppercase">{lightboxImage.alt}</span>
+              <span className="h-4 w-px bg-white/20" />
+              <span className="text-[12px] md:text-sm font-medium text-slate-300">{isVi ? "Nhấp bất kỳ đâu để đóng" : "Click anywhere to close"}</span>
             </div>
           </div>
         )}
