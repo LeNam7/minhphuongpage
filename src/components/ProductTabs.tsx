@@ -164,11 +164,14 @@ const TAB_DATA: Record<string, {
     title: "Bamboo & Rattan Art",
     descKey: "ceramics_desc",
     rawImage: "/images/bamboo_raw_materials.png",
-    packagedImage: "/images/bamboo_rattan_lamps.png",
+    packagedImage: "/images/bamboo_handicraft_export.png",
     subItems: [
       { id: "ceramics_1", labelKey: "ceramics_1_label", valKey: "ceramics_1_val" },
       { id: "ceramics_2", labelKey: "ceramics_2_label", valKey: "ceramics_2_val" },
-      { id: "ceramics_3", labelKey: "ceramics_3_label", valKey: "ceramics_3_val" }
+      { id: "ceramics_3", labelKey: "ceramics_3_label", valKey: "ceramics_3_val" },
+      { id: "ceramics_4", labelKey: "ceramics_4_label", valKey: "ceramics_4_val" },
+      { id: "ceramics_5", labelKey: "ceramics_5_label", valKey: "ceramics_5_val" },
+      { id: "ceramics_6", labelKey: "ceramics_6_label", valKey: "ceramics_6_val" }
     ]
   }
 };;
@@ -334,6 +337,8 @@ export default function ProductTabs() {
           .stagger-item-2 { animation: staggerItem 0.6s cubic-bezier(0.16, 1, 0.3, 1) both; animation-delay: 180ms; }
           .stagger-item-3 { animation: staggerItem 0.6s cubic-bezier(0.16, 1, 0.3, 1) both; animation-delay: 260ms; }
           .stagger-item-4 { animation: staggerItem 0.6s cubic-bezier(0.16, 1, 0.3, 1) both; animation-delay: 340ms; }
+          .stagger-item-5 { animation: staggerItem 0.6s cubic-bezier(0.16, 1, 0.3, 1) both; animation-delay: 420ms; }
+          .stagger-item-6 { animation: staggerItem 0.6s cubic-bezier(0.16, 1, 0.3, 1) both; animation-delay: 500ms; }
 
           @keyframes premiumFadeInLeft {
             0% {
@@ -375,11 +380,11 @@ export default function ProductTabs() {
           return (
             <div className="grid md:grid-cols-2 gap-8 md:gap-10 lg:gap-12 p-6 md:p-10 lg:p-12 items-stretch flex-grow w-full h-auto">
               {/* Left Column: Symmetrical Widescreen Dual-Image Showcase (Vertical Stack) */}
-              <div className="premium-anim-left bg-white p-3 md:p-4 rounded-[32px] border border-slate-200/70 shadow-[0_20px_50px_rgba(0,0,0,0.04)] flex flex-col justify-between gap-4 h-full min-h-[380px] md:min-h-[440px] lg:min-h-[480px] w-full">
+              <div className="premium-anim-left bg-white p-3 md:p-4 rounded-[24px] border border-slate-200/70 shadow-[0_20px_50px_rgba(0,0,0,0.04)] flex flex-col justify-between gap-4 h-full w-full">
                 {/* Image 1: Raw / Pre-processed */}
                 <div 
                   onClick={() => setLightboxImage({ src: currentTabData.rawImage, alt: isVi ? "Nguyên Liệu Sơ Chế" : "Raw Materials" })}
-                  className="relative w-full h-[180px] md:h-1/2 rounded-2xl md:rounded-[20px] overflow-hidden border border-slate-200/50 shadow-sm group transition-all duration-500 hover:!opacity-100 hover:!scale-[1.02] hover:!blur-none hover:shadow-xl hover:border-forest/30 group-hover/outer:opacity-75 group-hover/outer:scale-[0.98] group-hover/outer:blur-[0.5px] cursor-zoom-in flex-grow"
+                  className="relative w-full h-[150px] md:h-1/2 flex-grow rounded-xl overflow-hidden border border-slate-200/50 shadow-sm group transition-all duration-500 hover:!opacity-100 hover:!scale-[1.02] hover:!blur-none hover:shadow-xl hover:border-forest/30 group-hover/outer:opacity-75 group-hover/outer:scale-[0.98] group-hover/outer:blur-[0.5px] cursor-zoom-in"
                 >
                   <Image
                     src={currentTabData.rawImage}
@@ -402,7 +407,7 @@ export default function ProductTabs() {
                 {/* Image 2: Export Packaged */}
                 <div 
                   onClick={() => setLightboxImage({ src: currentTabData.packagedImage, alt: isVi ? "Đóng Gói Thành Phẩm" : "Export Packaged" })}
-                  className="relative w-full h-[180px] md:h-1/2 rounded-2xl md:rounded-[20px] overflow-hidden border border-slate-200/50 shadow-sm group transition-all duration-500 hover:!opacity-100 hover:!scale-[1.02] hover:!blur-none hover:shadow-xl hover:border-gold/40 group-hover/outer:opacity-75 group-hover/outer:scale-[0.98] group-hover/outer:blur-[0.5px] cursor-zoom-in flex-grow"
+                  className="relative w-full h-[150px] md:h-1/2 flex-grow rounded-xl overflow-hidden border border-slate-200/50 shadow-sm group transition-all duration-500 hover:!opacity-100 hover:!scale-[1.02] hover:!blur-none hover:shadow-xl hover:border-gold/40 group-hover/outer:opacity-75 group-hover/outer:scale-[0.98] group-hover/outer:blur-[0.5px] cursor-zoom-in"
                 >
                   <Image
                     src={currentTabData.packagedImage}
@@ -442,7 +447,7 @@ export default function ProductTabs() {
                   {currentTabData.subItems.map((item, idx) => (
                     <li 
                       key={item.id} 
-                      className={`relative pl-8 pb-5 border-l-2 border-slate-200/80 last:border-transparent last:pb-0 hover:bg-slate-50/50 hover:shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:border-l-gold hover:rounded-r-2xl transition-all duration-300 px-4 py-2.5 -ml-4 stagger-item-${idx + 1}`}
+                      className={`relative pl-8 pb-3 md:pb-4 border-l-2 border-slate-200/80 last:border-transparent last:pb-0 hover:bg-slate-50/50 hover:shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:border-l-gold hover:rounded-r-2xl transition-all duration-300 px-4 py-1.5 -ml-4 stagger-item-${idx + 1}`}
                     >
                       {/* Decorative Gold pulsing concentric dot */}
                       <span className="absolute -left-[9px] top-3.5 flex h-5 w-5 items-center justify-center">
