@@ -79,9 +79,16 @@ const TAB_ICONS: Record<string, (isActive: boolean) => React.ReactNode> = {
         : "w-11 h-11 bg-slate-50 border border-slate-200/80 text-slate-500 group-hover:text-slate-700 group-hover:border-slate-300"
     }`}>
       <svg className={`transition-transform duration-500 ease-out ${isActive ? "scale-105" : "scale-95"}`} width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M9 3h6M10 3v2c-2.5.5-4 2.5-4 5.5 0 4.5 2 7.5 6 7.5s6-3 6-7.5c0-3-1.5-5-4-5.5V3" />
-        <path d="M6.3 12.5h11.4" opacity="0.4" />
-        <path d="M12 21a6 6 0 0 1-6-6M12 21a6 6 0 0 0 6-6" />
+        <line x1="12" y1="2" x2="12" y2="8" />
+        <path d="M12 8c-4 0-7 2-7 6h14c0-4-3-6-7-6z" />
+        <path d="M5 14h14" />
+        <path d="M9 10v4" opacity="0.5" />
+        <path d="M12 8v6" opacity="0.8" />
+        <path d="M15 10v4" opacity="0.5" />
+        <circle cx="12" cy="17" r="1.5" />
+        <line x1="12" y1="18.5" x2="12" y2="20" opacity="0.8" />
+        <line x1="10.5" y1="17" x2="9" y2="17" opacity="0.8" />
+        <line x1="13.5" y1="17" x2="15" y2="17" opacity="0.8" />
       </svg>
     </div>
   )
@@ -154,10 +161,10 @@ const TAB_DATA: Record<string, {
     ]
   },
   ceramics: {
-    title: "Handmade Ceramics & Art",
+    title: "Bamboo & Rattan Art",
     descKey: "ceramics_desc",
-    rawImage: "/images/ceramics.png",
-    packagedImage: "/images/ceramics_decor.png",
+    rawImage: "/images/bamboo_raw_materials.png",
+    packagedImage: "/images/bamboo_rattan_lamps.png",
     subItems: [
       { id: "ceramics_1", labelKey: "ceramics_1_label", valKey: "ceramics_1_val" },
       { id: "ceramics_2", labelKey: "ceramics_2_label", valKey: "ceramics_2_val" },
