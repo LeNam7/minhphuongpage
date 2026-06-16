@@ -59,16 +59,14 @@ export default function PageBuilderLayout() {
   const [customBlocks, setCustomBlocks] = useState<any[]>([]);
 
   const loadCustomBlocks = useCallback(() => {
-    if (typeof window !== "undefined") {
-      const customBlocksStr = localStorage.getItem("mp_custom_blocks");
-      if (customBlocksStr) {
-        try {
-          setCustomBlocks(JSON.parse(customBlocksStr));
-        } catch (e) {
-          console.error("Failed to parse custom blocks:", e);
+    fetch("/api/custom-blocks")
+      .then((res) => res.json())
+      .then((data) => {
+        if (Array.isArray(data)) {
+          setCustomBlocks(data);
         }
-      }
-    }
+      })
+      .catch((err) => console.error("Failed to load custom blocks from DB API:", err));
   }, []);
 
   useEffect(() => {
@@ -189,21 +187,17 @@ export default function PageBuilderLayout() {
       createdAt: Date.now(),
     };
 
-    const existing = localStorage.getItem("mp_custom_blocks");
-    let list = [];
-    if (existing) {
-      try {
-        list = JSON.parse(existing);
-      } catch (err) {
-        list = [];
-      }
-    }
-    list.push(newBlockData);
-    localStorage.setItem("mp_custom_blocks", JSON.stringify(list));
+    fetch("/api/custom-blocks", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newBlockData),
+    })
+      .then((res) => res.json())
+      .then(() => {
+        loadCustomBlocks();
+      })
+      .catch((err) => console.error("Failed to save custom block to DB API:", err));
 
-    // Reload list and switch tab
-    loadCustomBlocks();
-    
     // Clear form
     setNewTitle("");
     setNewCategory("seafood");
@@ -223,21 +217,16 @@ export default function PageBuilderLayout() {
     setActiveTab("overview");
   };
 
-  // Delete custom block from reserve list (localStorage)
+  // Delete custom block from reserve list (Database API)
   const handleDeleteCustomBlock = (blockId: string) => {
-    if (typeof window !== "undefined") {
-      const existing = localStorage.getItem("mp_custom_blocks");
-      if (existing) {
-        try {
-          const list = JSON.parse(existing);
-          const filtered = list.filter((b: any) => b.id !== blockId);
-          localStorage.setItem("mp_custom_blocks", JSON.stringify(filtered));
-          loadCustomBlocks();
-        } catch (err) {
-          console.error("Failed to delete custom block:", err);
-        }
-      }
-    }
+    fetch(`/api/custom-blocks?id=${blockId}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then(() => {
+        loadCustomBlocks();
+      })
+      .catch((err) => console.error("Failed to delete custom block from DB API:", err));
   };
 
   // Convert uploaded image to Base64

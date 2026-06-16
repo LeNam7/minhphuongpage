@@ -14,12 +14,26 @@ export function usePageBuilder() {
   const [isDirty, setIsDirty] = useState(false);
   const initialized = useRef(false);
 
-  // Load from localStorage on mount
+  // Load from Database API on mount
   useEffect(() => {
     if (!initialized.current) {
-      const layout = loadPageLayout();
-      setPresent(layout);
-      initialized.current = true;
+      fetch("/api/layout")
+        .then((res) => res.json())
+        .then((data) => {
+          if (Array.isArray(data)) {
+            setPresent(data);
+          } else {
+            const layout = loadPageLayout();
+            setPresent(layout);
+          }
+          initialized.current = true;
+        })
+        .catch((err) => {
+          console.error("Failed to fetch layout from DB API:", err);
+          const layout = loadPageLayout();
+          setPresent(layout);
+          initialized.current = true;
+        });
     }
   }, []);
 
@@ -57,9 +71,18 @@ export function usePageBuilder() {
     setIsDirty(true);
   }, [future, present]);
 
-  // Save to localStorage
+  // Save to database API & localStorage
   const save = useCallback(() => {
     savePageLayout(present);
+    
+    fetch("/api/layout", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(present),
+    })
+      .then((res) => res.json())
+      .catch((err) => console.error("Failed to save layout to DB API:", err));
+
     const now = new Date();
     setSavedAt(now.toLocaleTimeString("vi-VN", { hour: "2-digit", minute: "2-digit" }));
     setIsDirty(false);

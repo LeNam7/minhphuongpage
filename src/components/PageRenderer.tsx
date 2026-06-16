@@ -32,8 +32,21 @@ export default function PageRenderer() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setBlocks(loadPageLayout());
-    setMounted(true);
+    fetch("/api/layout")
+      .then((res) => res.json())
+      .then((data) => {
+        if (Array.isArray(data)) {
+          setBlocks(data);
+        } else {
+          setBlocks(loadPageLayout());
+        }
+        setMounted(true);
+      })
+      .catch((err) => {
+        console.error("Failed to fetch layout from DB API:", err);
+        setBlocks(loadPageLayout());
+        setMounted(true);
+      });
   }, []);
 
   // Before mount, render default to avoid hydration mismatch

@@ -29,18 +29,31 @@ export default function CustomPostSection({ blockId }: CustomPostSectionProps) {
   const [post, setPost] = useState<CustomPostData | null>(null);
 
   useEffect(() => {
-    const customBlocksStr = localStorage.getItem("mp_custom_blocks");
-    if (customBlocksStr) {
-      try {
-        const customBlocks = JSON.parse(customBlocksStr) as CustomPostData[];
-        const found = customBlocks.find((b) => b.id === blockId);
-        if (found) {
-          setPost(found);
+    fetch("/api/custom-blocks")
+      .then((res) => res.json())
+      .then((data) => {
+        if (Array.isArray(data)) {
+          const found = data.find((b) => b.id === blockId);
+          if (found) {
+            setPost(found);
+          }
         }
-      } catch (e) {
-        console.error("Error parsing custom blocks:", e);
-      }
-    }
+      })
+      .catch((err) => {
+        console.error("Failed to fetch custom post from DB API:", err);
+        const customBlocksStr = localStorage.getItem("mp_custom_blocks");
+        if (customBlocksStr) {
+          try {
+            const customBlocks = JSON.parse(customBlocksStr) as CustomPostData[];
+            const found = customBlocks.find((b) => b.id === blockId);
+            if (found) {
+              setPost(found);
+            }
+          } catch (e) {
+            // ignore
+          }
+        }
+      });
   }, [blockId]);
 
   if (!post) return null;
