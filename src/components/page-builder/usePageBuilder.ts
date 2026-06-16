@@ -8,7 +8,7 @@ const MAX_HISTORY = 30;
 
 export function usePageBuilder() {
   const [past, setPast] = useState<BlockInstance[][]>([]);
-  const [present, setPresent] = useState<BlockInstance[]>([]);
+  const [present, setPresent] = useState<BlockInstance[]>(() => loadPageLayout());
   const [future, setFuture] = useState<BlockInstance[][]>([]);
   const [savedAt, setSavedAt] = useState<string | null>(null);
   const [isDirty, setIsDirty] = useState(false);
