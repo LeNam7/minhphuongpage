@@ -192,29 +192,37 @@ export default function PageBuilderLayout() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newBlockData),
     })
-      .then((res) => res.json())
+      .then(async (res) => {
+        if (!res.ok) {
+          const errData = await res.json().catch(() => ({}));
+          throw new Error(errData.error || "Không thể lưu khối vào Database");
+        }
+        return res.json();
+      })
       .then(() => {
         loadCustomBlocks();
+        // Clear form
+        setNewTitle("");
+        setNewCategory("seafood");
+        setNewSummary("");
+        setNewContent("");
+        setSelectedImage(MOCK_IMAGES[0].url);
+        setCustomImageUrl("");
+        setFormError("");
+
+        // Notify user
+        setShowSuccessNotification(true);
+        setTimeout(() => {
+          setShowSuccessNotification(false);
+        }, 4000);
+
+        // Switch back to overview tab
+        setActiveTab("overview");
       })
-      .catch((err) => console.error("Failed to save custom block to DB API:", err));
-
-    // Clear form
-    setNewTitle("");
-    setNewCategory("seafood");
-    setNewSummary("");
-    setNewContent("");
-    setSelectedImage(MOCK_IMAGES[0].url);
-    setCustomImageUrl("");
-    setFormError("");
-
-    // Notify user
-    setShowSuccessNotification(true);
-    setTimeout(() => {
-      setShowSuccessNotification(false);
-    }, 4000);
-
-    // Switch back to overview tab
-    setActiveTab("overview");
+      .catch((err) => {
+        console.error("Failed to save custom block to DB API:", err);
+        setFormError(err.message || "Không thể kết nối đến cơ sở dữ liệu. Vui lòng kiểm tra lại cấu hình.");
+      });
   };
 
   // Delete custom block from reserve list (Database API)
