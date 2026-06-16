@@ -4,6 +4,7 @@ import {notFound} from 'next/navigation';
 import {routing} from '@/i18n/routing';
 import Navbar from '@/components/Navbar';
 import FloatingChat from '@/components/FloatingChat';
+import {AuthProvider} from '@/components/AuthContext';
 import '@/app/globals.css';
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 
@@ -143,9 +144,11 @@ export default async function LocaleLayout({
       </head>
       <body className="min-h-screen flex flex-col font-body bg-white text-slate-700" suppressHydrationWarning>
         <NextIntlClientProvider messages={messages}>
-          <Navbar />
-          {children}
-          <FloatingChat />
+          <AuthProvider>
+            <Navbar />
+            {children}
+            <FloatingChat />
+          </AuthProvider>
         </NextIntlClientProvider>
       </body>
     </html>
