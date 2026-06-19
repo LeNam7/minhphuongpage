@@ -91,6 +91,35 @@ const TAB_ICONS: Record<string, (isActive: boolean) => React.ReactNode> = {
         <line x1="13.5" y1="17" x2="15" y2="17" opacity="0.8" />
       </svg>
     </div>
+  ),
+  pepper: (isActive) => (
+    <div className={`relative flex items-center justify-center rounded-xl shrink-0 transition-all duration-500 ease-out ${
+      isActive 
+        ? "w-13 h-13 bg-white/15 border border-white/25 text-white" 
+        : "w-11 h-11 bg-slate-50 border border-slate-200/80 text-slate-500 group-hover:text-slate-700 group-hover:border-slate-300"
+    }`}>
+      <svg className={`transition-transform duration-500 ease-out ${isActive ? "scale-105" : "scale-95"}`} width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="8" cy="9" r="4.5" />
+        <circle cx="16" cy="11" r="3.5" />
+        <circle cx="11" cy="17" r="4" />
+        <path d="M12 2c.5 1.5 1.5 2.5 2 3M7 3c-.5 1-1.5 1.5-2 2" opacity="0.6" />
+      </svg>
+    </div>
+  ),
+  rice: (isActive) => (
+    <div className={`relative flex items-center justify-center rounded-xl shrink-0 transition-all duration-500 ease-out ${
+      isActive 
+        ? "w-13 h-13 bg-white/15 border border-white/25 text-white" 
+        : "w-11 h-11 bg-slate-50 border border-slate-200/80 text-slate-500 group-hover:text-slate-700 group-hover:border-slate-300"
+    }`}>
+      <svg className={`transition-transform duration-500 ease-out ${isActive ? "scale-105" : "scale-95"}`} width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M4 22c2-7 8-13 16-16" />
+        <path d="M14.5 10.5c1-1 2.5-1 3.5 0s1 2.5 0 3.5-2.5 1-3.5 0-1-2.5 0-3.5" />
+        <path d="M10.5 14.5c1-1 2.5-1 3.5 0s1 2.5 0 3.5-2.5 1-3.5 0-1-2.5 0-3.5" />
+        <path d="M7 18c1-1 2.5-1 3.5 0s1 2.5 0 3.5-2.5 1-3.5 0-1-2.5 0-3.5" />
+        <path d="M17.5 6.5c1-1 2.5-1 3.5 0s1 2.5 0 3.5-2.5 1-3.5 0-1-2.5 0-3.5" />
+      </svg>
+    </div>
   )
 };
 
@@ -173,6 +202,27 @@ const TAB_DATA: Record<string, {
       { id: "ceramics_5", labelKey: "ceramics_5_label", valKey: "ceramics_5_val" },
       { id: "ceramics_6", labelKey: "ceramics_6_label", valKey: "ceramics_6_val" }
     ]
+  },
+  pepper: {
+    title: "Premium Black Pepper",
+    descKey: "pepper_desc",
+    rawImage: "/images/pepper_raw.png",
+    packagedImage: "/images/pepper_export.png",
+    subItems: [
+      { id: "pepper_1", labelKey: "pepper_1_label", valKey: "pepper_1_val" },
+      { id: "pepper_2", labelKey: "pepper_2_label", valKey: "pepper_2_val" }
+    ]
+  },
+  rice: {
+    title: "Vietnamese Jasmine & ST25 Rice",
+    descKey: "rice_desc",
+    rawImage: "/images/rice_raw.png",
+    packagedImage: "/images/rice_export.png",
+    subItems: [
+      { id: "rice_1", labelKey: "rice_1_label", valKey: "rice_1_val" },
+      { id: "rice_2", labelKey: "rice_2_label", valKey: "rice_2_val" },
+      { id: "rice_3", labelKey: "rice_3_label", valKey: "rice_3_val" }
+    ]
   }
 };;
 
@@ -209,6 +259,8 @@ export default function ProductTabs() {
     { id: "frozen", label: t("frozen") },
     { id: "fresh", label: t("fresh") },
     { id: "coffee", label: t("coffee_tab") },
+    { id: "pepper", label: t("pepper") },
+    { id: "rice", label: t("rice") },
     { id: "cashew", label: t("cashew") },
     { id: "ceramics", label: t("ceramics") },
   ];
